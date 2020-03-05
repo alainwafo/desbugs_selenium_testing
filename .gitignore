@@ -1,0 +1,23 @@
+# Intellij
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Package file
+*.jar
+*.war
+
+# config & reporter directory
+*.log
+log/
+config/
+#drivers/
+*/*.template
+
+#allure reporting
+.allure/
+target/
+
+# test class
+*/Test.class
