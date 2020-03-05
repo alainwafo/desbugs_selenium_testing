@@ -11,7 +11,7 @@
 # config & reporter directory
 *.log
 log/
-config/
+#config/
 drivers/
 #*/*.template
 
