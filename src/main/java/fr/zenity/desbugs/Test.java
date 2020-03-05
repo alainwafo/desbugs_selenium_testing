@@ -1,11 +1,10 @@
 package fr.zenity.desbugs;
 
 
-import fr.zenity.desbugs.config.PropertiesConfig;
-import fr.zenity.desbugs.config.PropertiesFile;
+import fr.zenity.desbugs.configuration.PropertiesConfig;
+import fr.zenity.desbugs.configuration.PropertiesFile;
 import fr.zenity.desbugs.context.ScenarioContext;
 import org.apache.log4j.Logger;
-import sun.security.krb5.Config;
 
 import static fr.zenity.desbugs.Enum.Context.LOL;
 import static fr.zenity.desbugs.Enum.Context.TEST;

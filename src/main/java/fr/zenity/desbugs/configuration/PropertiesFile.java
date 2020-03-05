@@ -1,4 +1,4 @@
-package fr.zenity.desbugs.config;
+package fr.zenity.desbugs.configuration;
 
 import fr.zenity.desbugs.utils.ResourcesUtils;
 import org.apache.log4j.Logger;
@@ -11,7 +11,7 @@ public class PropertiesFile {
     private static final Logger LOGGER              = Logger.getLogger(Properties.class);
     private static final PropertiesFile INSTANCE    = new PropertiesFile();
 
-    private static final String PROPERTY_FILE_NAME  = "config/test1.properties";
+    private static final String PROPERTY_FILE_NAME  = "config/configuration.properties";
     private Properties prop = null;
 
     public PropertiesFile( ){

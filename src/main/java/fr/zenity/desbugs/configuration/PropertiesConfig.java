@@ -1,4 +1,4 @@
-package fr.zenity.desbugs.config;
+package fr.zenity.desbugs.configuration;
 
 import fr.zenity.desbugs.Enum.Browser;
 import fr.zenity.desbugs.Enum.Device;
