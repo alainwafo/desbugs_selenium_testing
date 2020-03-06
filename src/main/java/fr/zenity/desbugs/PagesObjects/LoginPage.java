@@ -12,4 +12,10 @@ public class LoginPage extends Page {
     }
 
     By container = By.className("");
+
+    public void fillForm(String login, String password) {
+    }
+
+    public void validForm() {
+    }
 }

@@ -6,8 +6,7 @@ import fr.zenity.desbugs.configuration.PropertiesFile;
 import fr.zenity.desbugs.context.ScenarioContext;
 import org.apache.log4j.Logger;
 
-import static fr.zenity.desbugs.Enum.Context.LOL;
-import static fr.zenity.desbugs.Enum.Context.TEST;
+import static fr.zenity.desbugs.Enum.Context.*;
 
 public class Test {
 
@@ -17,9 +16,7 @@ public class Test {
 
     public static void main(String[] args){
 
-
        lol.get("test");
-
 
         PropertiesConfig config = PropertiesConfig.getInstance();
 
@@ -27,17 +24,10 @@ public class Test {
         System.out.println(config.browser);
         System.out.println(config.isProxy);
 
-        System.out.println(config.env.getUrl(null));
+        System.out.println(config.env.getUrl(false, null));
         System.out.println(config.browser.getPath());
 
         ScenarioContext context = new ScenarioContext();
-
-        context.set(TEST,"msdrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-        context.set(LOL,new Object[]{ ScenarioContext.class });
-        System.out.println( (String)context.get(TEST) );
-        System.out.println( (Object)context.get(LOL).toString() );
-
-
     }
 
 }

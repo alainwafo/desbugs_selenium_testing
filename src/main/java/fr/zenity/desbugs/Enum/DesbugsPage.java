@@ -1,5 +1,7 @@
 package fr.zenity.desbugs.Enum;
 
+import fr.zenity.desbugs.configuration.PropertiesConfig;
+
 public enum DesbugsPage {
     HOME("/"),
     BLOG("/blog"),
@@ -22,9 +24,6 @@ public enum DesbugsPage {
     ACCOUNT_IDENTIFY("/account/identifier"),
     ACCOUNT_SECURITY("/account/security");
 
-    private String baseUrl = "https://desbugs-landing.herokuapp.com";
-    private String loggedBaseUrl = "https://desbugs-app.herokuapp.com";
-
     private String pageUrl;
 
     public String getUrl(){
@@ -34,7 +33,7 @@ public enum DesbugsPage {
             case NEW_BUG :
             case RANKING :
             case LEARN_MORE :
-                return baseUrl.concat(pageUrl);
+                return PropertiesConfig.getInstance().env.getUrl(false, pageUrl);
             case REGISTER :
             case LOGIN :
             case LOGGED_HOME :
@@ -50,9 +49,9 @@ public enum DesbugsPage {
             case ACCOUNT_GENERAL:
             case ACCOUNT_IDENTIFY:
             case ACCOUNT_SECURITY:
-                return loggedBaseUrl.concat(pageUrl);
+                return PropertiesConfig.getInstance().env.getUrl(true, pageUrl);
             default:
-                return loggedBaseUrl;
+                return PropertiesConfig.getInstance().env.getUrl(false, null);
         }
     }
 
