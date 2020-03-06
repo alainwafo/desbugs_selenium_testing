@@ -17,6 +17,7 @@ public enum Browser {
     private final static String BROWSER_FILE_NAME   = "config/browser.properties";
 
     private String webDriverPath;
+    private String webDriverSystemProperty;
 
     public static Browser build( String browserName ){
         LOGGER.info(String.format("Browser that will be launched := %s",browserName.toUpperCase()));
@@ -29,11 +30,17 @@ public enum Browser {
 
     private void setPath(String path){
         this.webDriverPath = path;
+        this.webDriverSystemProperty = String.format("webdriver.%s.driver",this.equals(Browser.FIREFOX) ? "gecko" : this.toString().toLowerCase());
     }
 
     public String getPath(){
         if(webDriverPath==null) load();
         return webDriverPath;
+    }
+
+    public String getProperty(){
+        if(webDriverPath==null) load();
+        return this.webDriverSystemProperty;
     }
 
     private void load(){
