@@ -1,5 +1,6 @@
 package fr.zenity.desbugs.Enum;
 
 public enum Context {
-    CURRENT_PAGE
+    CURRENT_PAGE,
+    DRIVER;
 }

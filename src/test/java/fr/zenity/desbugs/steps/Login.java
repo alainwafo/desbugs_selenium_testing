@@ -2,16 +2,22 @@ package fr.zenity.desbugs.steps;
 
 import fr.zenity.desbugs.Enum.Context;
 import fr.zenity.desbugs.Enum.DesbugsPage;
+import fr.zenity.desbugs.PagesObjects.HomePage;
 import fr.zenity.desbugs.PagesObjects.LoginPage;
 import fr.zenity.desbugs.context.ScenarioContext;
+import io.cucumber.java8.En;
+import org.openqa.selenium.WebDriver;
 
-public class Login extends Hook{
+public class Login implements En {
+
+    public WebDriver driver;
 
     public Login(ScenarioContext scenarioContext) {
-
-        super(scenarioContext);
+        System.out.println("-------------- Login steps initialisation");
 
         Given("I am on the Login Page", () -> {
+            //TODO : delete DRIVER context
+            driver = (WebDriver)scenarioContext.get(Context.DRIVER);
             driver.navigate().to(DesbugsPage.LOGIN.getUrl());
             LoginPage loginPage = new LoginPage(driver);
             scenarioContext.set(Context.CURRENT_PAGE, loginPage);

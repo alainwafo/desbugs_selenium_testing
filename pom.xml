@@ -23,6 +23,7 @@
     <cucumber.version>5.4.0</cucumber.version>
     <cucumberJvmDeps.version>1.0.6</cucumberJvmDeps.version>
     <cucumberInfoCukes.version>2.12.2</cucumberInfoCukes.version>
+    <gherkinVersion>2.12.2</gherkinVersion>
 
     <restAssured.version>4.2.0</restAssured.version>
     <json.version>20190722</json.version>
@@ -114,6 +115,11 @@
       <artifactId>gherkin</artifactId>
       <version>${cucumberInfoCukes.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>gherkin</artifactId>
+      <version>${gherkinVersion}</version>
     </dependency>
     <!-- /cucumber -->
 
