@@ -18,21 +18,15 @@ public enum PropertiesConfig {
     public Boolean headless;
     public String extensionPath;
 
-    PropertiesConfig( ){
+    PropertiesConfig( ) {
 
-        isProxy       = Boolean.valueOf(System.getProperty("proxy",prop.get("proxy.enabled","false")));
-        env           = UrlEnvironment.init(System.getProperty("env",prop.get("environment","develop")));
-        browser       = Browser.init(System.getProperty("browser",prop.get("browser.default","chrome")));
-        headless      = Boolean.valueOf(System.getProperty("headless",prop.get("headless","false")));
-        extensionPath = System.getProperty("extensionPath",prop.get("extensionPath",""));
+        isProxy = Boolean.valueOf(System.getProperty("proxy", prop.get("proxy.enabled", "false")));
+        env = UrlEnvironment.init(System.getProperty("env", prop.get("environment", "develop")));
+        browser = Browser.init(System.getProperty("browser", prop.get("browser.default", "chrome")));
+        headless = Boolean.valueOf(System.getProperty("headless", prop.get("headless", "false")));
+        extensionPath = System.getProperty("extensionPath", prop.get("extensionPath", ""));
 
-    }
-
-    public UrlEnvironment setUrl(String environmentTemporary){
-        env.setUrl(environmentTemporary);
-        return env;
     }
 
     public static PropertiesConfig getInstance( ){ return INSTANCE; }
-
 }

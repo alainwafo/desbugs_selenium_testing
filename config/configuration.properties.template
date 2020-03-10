@@ -1,9 +1,0 @@
-# hasProxy route
-proxy.enabled=false
-proxy.config=
-
-# default environment launched
-environment=
-
-# default browser
-browser.default=

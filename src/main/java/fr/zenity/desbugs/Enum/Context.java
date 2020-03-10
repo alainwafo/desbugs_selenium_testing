@@ -1,8 +1,6 @@
 package fr.zenity.desbugs.Enum;
 
 public enum Context {
-
-    TEST,
-    LOL
-
+    CURRENT_PAGE,
+    DRIVER;
 }
