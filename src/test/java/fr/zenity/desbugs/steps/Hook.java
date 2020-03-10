@@ -1,4 +1,4 @@
-package fr.zenity.desbugs.step_definitions;
+package fr.zenity.desbugs.steps;
 
 
 import fr.zenity.desbugs.context.ScenarioContext;

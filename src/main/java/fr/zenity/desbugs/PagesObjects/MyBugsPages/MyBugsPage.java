@@ -1,13 +1,14 @@
-package fr.zenity.desbugs.PagesObjects;
+package fr.zenity.desbugs.PagesObjects.MyBugsPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
+import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class BlogPage extends Page {
+public class MyBugsPage extends Page {
 
-    public BlogPage(WebDriver driver) {
-        super(driver);
+    public MyBugsPage(WebDriver driver) {
+        super();
         init(DesbugsPage.RANKING, container);
     }
 
