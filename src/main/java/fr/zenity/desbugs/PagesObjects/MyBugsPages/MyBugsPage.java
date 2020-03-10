@@ -7,10 +7,31 @@ import org.openqa.selenium.WebDriver;
 
 public class MyBugsPage extends Page {
 
-    public MyBugsPage(WebDriver driver) {
-        super();
-        init(DesbugsPage.RANKING, container);
+    By container = By.className("jss2450");
+
+    public enum Column{
+        APPLICATION_NAME("Nom du site/application"),
+        STATUS("Statut"),
+        CRITICITY("Criticité"),
+        MODIFICATION_DATE("Modifié le"),
+        CREATIONDATE("Créé le");
+
+        private String columnText;
+
+        private String get(){ return columnText; }
+
+        private Column(String text){
+            this.columnText = text;
+        }
     }
 
-    By container = By.className("jss2450");
+    private TableComponant table;
+
+    public void orderColumnByHeaderName(Column columnName){
+        table.orderColumnByHeaderName(columnName.get());
+    }
+
+    public void getValueByColumnNameAndLineNumber(Column columnName, int lineNumber){
+        table.getValueByColumnNameAndLineNumber(columnName.get(), lineNumber);
+    }
 }
