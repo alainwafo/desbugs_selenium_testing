@@ -12,5 +12,5 @@ public class MyBugsPage extends Page {
         init(DesbugsPage.RANKING, container);
     }
 
-    By container = By.className("");
+    By container = By.className("jss2450");
 }
