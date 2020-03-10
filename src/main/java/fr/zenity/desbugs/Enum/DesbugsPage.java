@@ -55,7 +55,8 @@ public enum DesbugsPage {
         }
     }
 
-    private DesbugsPage(String page){
+
+    DesbugsPage(String page){
             this.pageUrl = page;
     }
 

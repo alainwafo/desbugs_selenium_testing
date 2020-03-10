@@ -11,13 +11,13 @@
 # config & reporter directory
 *.log
 log/
-config/
 drivers/
-*/*.template
+configuration/*.template
 
 #allure reporting
 .allure/
 target/
 
 # test class
+Test*.java
 Test.java
