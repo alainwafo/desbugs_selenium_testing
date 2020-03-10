@@ -1,16 +1,9 @@
 package fr.zenity.desbugs.runners;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import org.apache.log4j.BasicConfigurator;
 import org.testng.annotations.BeforeClass;
 import fr.zenity.desbugs.configuration.PropertiesConfig;
 
-public abstract class BaseRunner extends AbstractTestNGCucumberTests {
-
-    @BeforeClass
-    public static void before_class() {
-        BasicConfigurator.configure();
-    }
+public abstract class BaseRunner {
 
     @BeforeClass
     public static void init_webdriver() {
