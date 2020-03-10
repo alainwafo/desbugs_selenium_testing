@@ -2,7 +2,6 @@ package fr.zenity.desbugs.steps;
 
 import fr.zenity.desbugs.Enum.Context;
 import fr.zenity.desbugs.Enum.DesbugsPage;
-import fr.zenity.desbugs.PagesObjects.HomePage;
 import fr.zenity.desbugs.PagesObjects.LoginPage;
 import fr.zenity.desbugs.context.ScenarioContext;
 import io.cucumber.java8.En;
@@ -25,13 +24,14 @@ public class Login implements En {
 
         Given("I fill the Login Form", () -> {
             LoginPage loginPage = (LoginPage)scenarioContext.get(Context.CURRENT_PAGE);
-            loginPage.fillForm("admin", "admin");
+            // TODO : variabilise user credential
+            loginPage.writeUser("admin");
+            loginPage.writeUser("admin");
         });
 
         When("I valid the Login Form", () -> {
             LoginPage loginPage = (LoginPage)scenarioContext.get(Context.CURRENT_PAGE);
-            loginPage.fillForm("admin", "admin");
-            loginPage.validForm();
+            loginPage.submitForm();
         });
 
         Then("the logged home should be displayed", () -> {

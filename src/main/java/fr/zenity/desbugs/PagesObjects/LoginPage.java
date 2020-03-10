@@ -11,11 +11,20 @@ public class LoginPage extends Page {
         init(DesbugsPage.LOGIN, container);
     }
 
-    By container = By.className("");
+    By container = By.className("jss844");
+    By userInput = By.id("user-login");
+    By passwordInput = By.id("password-login");
+    By submitButton = By.cssSelector("button[type=\"submit\"]");
 
-    public void fillForm(String login, String password) {
+    public void writeUser(String user){
+        writeText(userInput, user);
     }
 
-    public void validForm() {
+    public void writePassword(String password){
+        writeText(passwordInput, password);
+    }
+
+    public void submitForm(){
+        click(submitButton);
     }
 }
