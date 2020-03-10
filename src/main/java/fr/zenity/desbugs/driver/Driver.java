@@ -17,7 +17,7 @@ public interface Driver {
     WebDriver getWebDriver();
     void closeDriver();
 
-    default ChromeOptions chromeOptions(){
+    default ChromeOptions ChromeOptions(){
         ChromeOptions chromeOpts = new ChromeOptions();
 
         chromeOpts.setAcceptInsecureCerts(true)
@@ -67,7 +67,7 @@ public interface Driver {
 
         operaOpts.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
         operaOpts.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-        operaOpts.addExtensions(new File[]{(new File(Config.propConfig.extensionPath))});
+        //operaOpts.addExtensions(new File[]{(new File(Config.propConfig.extensionPath))});
 
         if(Config.propConfig.isProxy){
             operaOpts.setProxy(getProxy());

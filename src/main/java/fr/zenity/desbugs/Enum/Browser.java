@@ -56,4 +56,9 @@ public enum Browser {
         }
     }
 
+    @Override
+    public String toString( ){
+        return super.toString().toLowerCase();
+    }
+
 }

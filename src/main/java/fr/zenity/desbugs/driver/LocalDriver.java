@@ -1,23 +1,19 @@
 package fr.zenity.desbugs.driver;
 
-import fr.zenity.desbugs.configuration.PropertiesConfig;
+import fr.zenity.desbugs.Enum.Browser;
+import fr.zenity.desbugs.configuration.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 public class LocalDriver implements Driver {
 
-    public final WebDriver webDriver = null;
+    private WebDriver webDriver = null;
 
     @Override
     public WebDriver getWebDriver() {
-        if (webDriver == null) {
-            switch (PropertiesConfig.getInstance().browser){
-                case CHROME:
-                    return new ChromeDriver(chromeOptions());
-                default :
-                    return new ChromeDriver();
-            }
-        }
         return webDriver;
     }
 
@@ -26,4 +22,24 @@ public class LocalDriver implements Driver {
         webDriver.close();
     }
 
+    public LocalDriver(){
+        webDriver = buildLocalDriver();
+    }
+
+    private WebDriver buildLocalDriver(){
+        Browser browser = Config.propConfig.browser;
+        System.setProperty(
+                browser.getProperty(),
+                browser.getPath()
+        );
+
+        return browser.toString().equals("firefox") ?
+               new FirefoxDriver(FirefoxOptions()) :
+               browser.toString().equals("edge") ?
+               new EdgeDriver(EdgeOptions()) :
+               browser.toString().equals("opera") ?
+               new OperaDriver(OperaOptions()) :
+               // default
+               new ChromeDriver(ChromeOptions());
+    }
 }
