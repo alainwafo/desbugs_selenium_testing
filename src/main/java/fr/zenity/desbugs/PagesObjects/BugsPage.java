@@ -11,5 +11,5 @@ public class BugsPage extends Page {
         init(DesbugsPage.BUGS, container);
     }
 
-    By container = By.className("");
+    By container = By.className("jss2386");
 }

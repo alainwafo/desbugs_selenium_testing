@@ -54,6 +54,12 @@ public class Page {
         return driver.findElements(elementBy);
     }
 
+    //Get first element
+    public WebElement findElement(By elementBy) {
+        waitVisibility(elementBy);
+        return driver.findElement(elementBy);
+    }
+
     public boolean isSelected(By elementBy) {
         waitVisibility(elementBy);
         String selected = driver.findElement(elementBy).getAttribute("aria-selected");
