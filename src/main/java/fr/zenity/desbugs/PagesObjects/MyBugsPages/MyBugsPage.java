@@ -16,7 +16,7 @@ public class MyBugsPage extends Page {
         table = new TableComponant(driver);
     }
 
-    By container = By.className("jss2450");
+    By container = By.className("MuiContainer-root");
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

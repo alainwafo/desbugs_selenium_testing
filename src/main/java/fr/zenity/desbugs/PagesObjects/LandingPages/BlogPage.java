@@ -12,5 +12,5 @@ public class BlogPage extends Page {
         init(DesbugsPage.BLOG, container);
     }
 
-    By container = By.className("");
+    By container = By.id("gatsby-focus-wrapper");
 }

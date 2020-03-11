@@ -12,7 +12,6 @@ public class AccountSecurityForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_SECURITY, container);
     }
 
-    //TODO : ask for better selector
     By container = By.className("MuiCard-root");
 
     By oldPasswordInput = By.id("oldPassword");

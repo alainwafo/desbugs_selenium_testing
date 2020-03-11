@@ -11,7 +11,7 @@ public class LoginPage extends Page {
         init(DesbugsPage.LOGIN, container);
     }
 
-    By container = By.className("jss844");
+    By container = By.className("MuiGrid-container");
     By userInput = By.id("user-login");
     By passwordInput = By.id("password-login");
     By submitButton = By.cssSelector("button[type=\"submit\"]");

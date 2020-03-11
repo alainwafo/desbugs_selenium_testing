@@ -12,5 +12,8 @@ public class MyBugsCommentsPage extends Page {
         init(DesbugsPage.RANKING, container);
     }
 
+    //TODO : check selectors
     By container = By.className("");
+
+    //TODO : implement page
 }

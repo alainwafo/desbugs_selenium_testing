@@ -15,8 +15,9 @@ public class NewBugDetailPage extends Page {
         init(DesbugsPage.NEW_BUG, container);
     }
 
-    By container = By.className("jss16");
-    By returnButton = By.className("jss18");
+    By container = By.className("MuiGrid-container");
+    //TODO find better selector
+    By returnButton = By.className("#root > div:nth-child(2) > div > h3");
     By webSiteNameInput = By.id("name-website");
     By webSiteUrlInput = By.id("address-website");
     By bugDescriptionInput = By.cssSelector("div.public-DraftStyleDefault-block > span > span");

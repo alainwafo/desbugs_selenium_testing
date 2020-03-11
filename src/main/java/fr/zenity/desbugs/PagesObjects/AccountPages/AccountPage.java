@@ -11,7 +11,7 @@ public class AccountPage extends Page {
         super(driver);
     }
 
-    By container = By.className("jss2");
+    By container = By.className("MuiContainer-root");
 
     By generalSeletor = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_GENERAL + "\"]");
 

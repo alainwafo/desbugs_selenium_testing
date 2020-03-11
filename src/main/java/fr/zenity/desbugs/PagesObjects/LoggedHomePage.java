@@ -11,5 +11,5 @@ public class LoggedHomePage extends Page {
         init(DesbugsPage.LOGGED_HOME, container);
     }
 
-    By container = By.className("");
+    By container = By.className("MuiGrid-container");
 }

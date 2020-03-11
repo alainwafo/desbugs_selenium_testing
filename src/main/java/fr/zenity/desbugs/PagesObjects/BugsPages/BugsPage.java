@@ -1,30 +1,32 @@
-package fr.zenity.desbugs.PagesObjects;
+package fr.zenity.desbugs.PagesObjects.BugsPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
+import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UsersPage extends Page {
+public class BugsPage extends Page {
 
-    public UsersPage(WebDriver driver) {
+    public BugsPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.RANKING, container);
+        init(DesbugsPage.BUGS, container);
         table = new TableComponant(driver);
     }
 
-    By container = By.className("jss2");
+    By container = By.className("MuiContainer-root");
 
     public enum Column{
-        EMAIL("Email"),
-        USERNAME("Identifiant"),
-        FISTNAME("Prénom"),
-        LASTNAME("Nom"),
-        ROLE("Role");
+        APPLICATION_NAME("Nom du site/application"),
+        STATUS("Statut"),
+        CRITICITY("Criticité"),
+        MODIFICATION_DATE("Modifié le"),
+        CREATIONDATE("Créé le");
 
         private String columnText;
 
-        public String get(){ return columnText; }
+        private String get(){ return columnText; }
 
         private Column(String text){
             this.columnText = text;
@@ -40,5 +42,4 @@ public class UsersPage extends Page {
     public void getValueByColumnNameAndLineNumber(Column columnName, int lineNumber){
         table.getValueByColumnNameAndLineNumber(columnName.get(), lineNumber);
     }
-
 }

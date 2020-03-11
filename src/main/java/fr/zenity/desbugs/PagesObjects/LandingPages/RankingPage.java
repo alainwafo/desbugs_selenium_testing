@@ -12,5 +12,5 @@ public class RankingPage extends Page {
         init(DesbugsPage.RANKING, container);
     }
 
-    By container = By.className("");
+    By container = By.id("gatsby-focus-wrapper");
 }

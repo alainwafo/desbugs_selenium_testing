@@ -12,5 +12,8 @@ public class MyBugsFilesPage extends Page {
         init(DesbugsPage.MY_BUGS_FILES, container);
     }
 
+    //TODO : check selectors
     By container = By.className("");
+
+    //TODO : implement page
 }

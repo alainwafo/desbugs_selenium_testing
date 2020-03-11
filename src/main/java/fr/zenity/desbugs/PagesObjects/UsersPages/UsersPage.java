@@ -1,28 +1,32 @@
-package fr.zenity.desbugs.PagesObjects;
+package fr.zenity.desbugs.PagesObjects.UsersPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
+import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
+import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EntreprisesVerifyPage extends Page {
+public class UsersPage extends Page {
 
-    public EntreprisesVerifyPage(WebDriver driver) {
+    public UsersPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.ENTREPRISES_VERIFY, container);
+        init(DesbugsPage.RANKING, container);
+        table = new TableComponant(driver);
     }
 
-    By container = By.className("");
+    By container = By.className("jss2");
 
     public enum Column{
-        ENTREPRISE_NAME("Nom de l'entreprise"),
         EMAIL("Email"),
         USERNAME("Identifiant"),
         FISTNAME("Prénom"),
-        LASTNAME("Nom");
+        LASTNAME("Nom"),
+        ROLE("Role");
 
         private String columnText;
 
-        private String get(){ return columnText; }
+        public String get(){ return columnText; }
 
         private Column(String text){
             this.columnText = text;
@@ -38,4 +42,5 @@ public class EntreprisesVerifyPage extends Page {
     public void getValueByColumnNameAndLineNumber(Column columnName, int lineNumber){
         table.getValueByColumnNameAndLineNumber(columnName.get(), lineNumber);
     }
+
 }

@@ -13,7 +13,6 @@ public class HunterRegisterForm extends Page {
     }
 
     By container = By.className("scrollable-auto-tabpanel-0");
-    By hunterSeletor = By.id("scrollable-auto-tab-0");
     By hunterLastnameInput = By.id("lastname");
     By hunterFirstnameInput = By.id("firstname");
     By hunterUsernameInput = By.id("username");

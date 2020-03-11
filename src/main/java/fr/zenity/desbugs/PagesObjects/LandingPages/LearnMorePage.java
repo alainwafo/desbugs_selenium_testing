@@ -12,5 +12,5 @@ public class LearnMorePage extends Page {
         init(DesbugsPage.LEARN_MORE, container);
     }
 
-    By container = By.className("");
+    By container = By.id("gatsby-focus-wrapper");
 }

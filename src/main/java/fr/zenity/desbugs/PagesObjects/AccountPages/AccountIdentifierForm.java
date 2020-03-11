@@ -12,7 +12,6 @@ public class AccountIdentifierForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_IDENTIFY, container);
     }
 
-    //TODO : ask for better selector
     By container = By.cssSelector("div.MuiCard-root > form");
 
     By emailInput = By.id("newEmail");
