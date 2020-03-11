@@ -12,7 +12,8 @@
 *.log
 log/
 drivers/
-configuration/*.template
+src/main/resources/config/*.*
+
 
 #allure reporting
 .allure/
