@@ -5,6 +5,8 @@ import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class EntreprisesCreatedPage extends Page {
 
@@ -14,9 +16,11 @@ public class EntreprisesCreatedPage extends Page {
         table = new TableComponant(driver);
     }
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement container ;
 
-    By addButton = By.className("div.MuiGrid-root > button.MuiButtonBase-root");
+    @FindBy(className = "div.MuiGrid-root > button.MuiButtonBase-root")
+    private WebElement  addButton ;
 
     public enum Column{
         ENTREPRISE_NAME("Nom de l'entreprise"),

@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends Page {
 
@@ -13,17 +15,21 @@ public class RegisterPage extends Page {
         hunterForm = new HunterRegisterForm(driver);
     }
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container ;
 
     //user register form
     HunterRegisterForm hunterForm;
-    By hunterSeletor = By.id("scrollable-auto-tab-0");
+    @FindBy(id = "scrollable-auto-tab-0")
+    private WebElement  hunterSeletor ;
 
     //entreprise register form
     EntrepriseRegisterForm entrepriseForm;
-    By entrepriseSeletor = By.id("scrollable-auto-tab-1");
+    @FindBy(id = "scrollable-auto-tab-1")
+    private WebElement  entrepriseSeletor ;
 
-    By submitButton = By.className("button.MuiButton-root[type=\"submit\"]");
+    @FindBy(className = "button.MuiButton-root[type=\"submit\"]")
+    private WebElement  submitButton ;
 
     public void selectHunterForm(){
         click(hunterSeletor);

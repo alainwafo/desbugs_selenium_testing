@@ -5,6 +5,8 @@ import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.Dictionary;
 
@@ -16,7 +18,8 @@ public class MyBugsPage extends Page {
         table = new TableComponant(driver);
     }
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement container ;
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

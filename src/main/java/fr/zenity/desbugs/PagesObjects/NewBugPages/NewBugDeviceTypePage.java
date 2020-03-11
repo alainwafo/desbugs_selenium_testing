@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class NewBugDeviceTypePage extends Page {
 
@@ -16,11 +18,16 @@ public class NewBugDeviceTypePage extends Page {
         init(DesbugsPage.NEW_BUG, container);
     }
 
-    By container = By.className("MuiGrid-container");
-    By returnButton = By.className("#root > div:nth-child(2) > div > h3");
-    By computerContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(1)");
-    By padContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(2)");
-    By smartphoneContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(3)");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container ;
+    @FindBy(className = "#root > div:nth-child(2) > div > h3")
+    private WebElement  returnButton ;
+    @FindBy(css = "#root > section > div > div.MuiGrid-item:nth-child(1)")
+    private WebElement  computerContainer ;
+    @FindBy(css = "#root > section > div > div.MuiGrid-item:nth-child(2)")
+    private WebElement  padContainer ;
+    @FindBy(css = "#root > section > div > div.MuiGrid-item:nth-child(3)")
+    private WebElement  smartphoneContainer ;
 
     public void selectBugPlateform (DeviceType type) {
         switch (type) {

@@ -3,6 +3,8 @@ package fr.zenity.desbugs.PagesObjects;
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoggedHomePage extends Page {
 
@@ -11,5 +13,6 @@ public class LoggedHomePage extends Page {
         init(DesbugsPage.LOGGED_HOME, container);
     }
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container ;
 }

@@ -10,7 +10,8 @@ public class UserCreationPopup extends InformationPopup {
         super(driver);
     }
 
-    By emailInput = By.id("email-tester");
+    @FindBy(id = "email-tester")
+    private WebElement  emailInput ;
 
     public enum Button{
         CANCEL("Annuler"),

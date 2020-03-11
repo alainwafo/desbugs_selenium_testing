@@ -15,7 +15,8 @@ public class BugsPage extends Page {
         table = new TableComponant(driver);
     }
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement  container ;
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

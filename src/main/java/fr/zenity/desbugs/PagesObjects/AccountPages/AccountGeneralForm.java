@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AccountGeneralForm extends AccountPage {
 
@@ -12,18 +14,32 @@ public class AccountGeneralForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_GENERAL, container);
     }
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container;
 
-    By avatarContainer = By.cssSelector("div.MuiCardContent-root > div.MuiAvatar-root");
-    By userDataContainer = By.cssSelector("div.MuiCardContent-root > h5.MuiTypography-root");
-    By emailContainer = By.cssSelector("div.MuiCardContent-root > h6.MuiTypography-root");
+    @FindBy(css = "div.MuiCardContent-root > div.MuiAvatar-root")
+    private WebElement avatarContainer;
 
-    By deleteAvatarButton = By.cssSelector("div.MuiCardActions-root > button");
+    @FindBy(css = "div.MuiCardContent-root > h5.MuiTypography-root")
+    private WebElement  userDataContainer;
 
-    By firstnameInput = By.id("newFirstname");
-    By lastnameInput = By.id("newLastname");
-    By usernameInput = By.id("newUsername");
-    By phoneInput = By.id("newPhone");
+    @FindBy(css = "div.MuiCardContent-root > h6.MuiTypography-root")
+    private WebElement  emailContainer;
+
+    @FindBy(css = "div.MuiCardActions-root > button")
+    private WebElement  deleteAvatarButton;
+
+    @FindBy(id = "newFirstname")
+    private WebElement  firstnameInput;
+
+    @FindBy(id = "newLastname")
+    private WebElement  lastnameInput;
+
+    @FindBy(id = "newUsername")
+    private WebElement  usernameInput;
+
+    @FindBy(id = "newPhone")
+    private WebElement  phoneInput;
 
     public void getAvatar(){
         readText(avatarContainer);

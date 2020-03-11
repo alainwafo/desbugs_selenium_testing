@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class RankingPage extends Page {
 
@@ -12,5 +14,6 @@ public class RankingPage extends Page {
         init(DesbugsPage.RANKING, container);
     }
 
-    By container = By.id("gatsby-focus-wrapper");
+    @FindBy(id = "gatsby-focus-wrapper")
+    private WebElement container ;
 }

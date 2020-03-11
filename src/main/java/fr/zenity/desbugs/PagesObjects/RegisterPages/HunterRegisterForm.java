@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HunterRegisterForm extends Page {
 
@@ -12,14 +14,22 @@ public class HunterRegisterForm extends Page {
         waitVisibility(container);
     }
 
-    By container = By.className("scrollable-auto-tabpanel-0");
-    By hunterLastnameInput = By.id("lastname");
-    By hunterFirstnameInput = By.id("firstname");
-    By hunterUsernameInput = By.id("username");
-    By hunterEmailInput = By.id("email");
-    By hunterPasswordInput = By.id("password");
-    By hunterConfirmPasswordInput = By.id("confirmPassword");
-    By hunterCguInput = By.id("CGU");
+    @FindBy(className = "scrollable-auto-tabpanel-0")
+    private WebElement container ;
+    @FindBy(id = "lastname")
+    private WebElement  hunterLastnameInput ;
+    @FindBy(id = "firstname")
+    private WebElement  hunterFirstnameInput ;
+    @FindBy(id = "username")
+    private WebElement  hunterUsernameInput ;
+    @FindBy(id = "email")
+    private WebElement  hunterEmailInput ;
+    @FindBy(id = "password")
+    private WebElement  hunterPasswordInput ;
+    @FindBy(id = "confirmPassword")
+    private WebElement  hunterConfirmPasswordInput ;
+    @FindBy(id = "CGU")
+    private WebElement  hunterCguInput ;
 
     public void writeLastname(String lastname){
         writeText(hunterLastnameInput, lastname);

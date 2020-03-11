@@ -20,49 +20,37 @@ public class Page {
         wait = new WebDriverWait(driver,2);
     }
 
-    public void init(DesbugsPage pageName, By container){
+    public void init(DesbugsPage pageName, WebElement container){
         new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
         waitVisibility(container);
     }
 
     //Wait Wrapper Method
-    public void waitVisibility(By elementBy) {
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+    public void waitVisibility(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
     //Click Method
-    public void click (By elementBy) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).click();
+    public void click (WebElement element) {
+        waitVisibility(element);
+        element.click();
     }
 
     //Write Text
-    public void writeText (By elementBy, String text) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).sendKeys(text);
+    public void writeText (WebElement element, String text) {
+        waitVisibility(element);
+        element.sendKeys(text);
     }
 
     //Read Text
-    public String readText (By elementBy) {
-        waitVisibility(elementBy);
-        return driver.findElement(elementBy).getText();
+    public String readText (WebElement element) {
+        waitVisibility(element);
+        return element.getText();
     }
 
-    //Get list of elements
-    public List<WebElement> findElements(By elementBy) {
-        waitVisibility(elementBy);
-        return driver.findElements(elementBy);
-    }
-
-    //Get first element
-    public WebElement findElement(By elementBy) {
-        waitVisibility(elementBy);
-        return driver.findElement(elementBy);
-    }
-
-    public boolean isSelected(By elementBy) {
-        waitVisibility(elementBy);
-        String selected = driver.findElement(elementBy).getAttribute("aria-selected");
+    public boolean isSelected(WebElement element) {
+        waitVisibility(element);
+        String selected = element.getAttribute("aria-selected");
         return !selected.isEmpty() || selected != null ? Boolean.parseBoolean(selected) : false;
     }
 }

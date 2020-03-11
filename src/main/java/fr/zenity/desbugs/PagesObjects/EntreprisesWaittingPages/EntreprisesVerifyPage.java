@@ -5,6 +5,8 @@ import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class EntreprisesVerifyPage extends Page {
 
@@ -13,7 +15,8 @@ public class EntreprisesVerifyPage extends Page {
         init(DesbugsPage.ENTREPRISES_VERIFY, container);
     }
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container ;
 
     public enum Column{
         ENTREPRISE_NAME("Nom de l'entreprise"),

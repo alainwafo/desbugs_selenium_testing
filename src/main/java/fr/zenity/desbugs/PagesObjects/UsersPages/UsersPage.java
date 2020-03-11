@@ -15,7 +15,8 @@ public class UsersPage extends Page {
         table = new TableComponant(driver);
     }
 
-    By container = By.className("jss2");
+    @FindBy(className = "jss2")
+    private WebElement  container ;
 
     public enum Column{
         EMAIL("Email"),
