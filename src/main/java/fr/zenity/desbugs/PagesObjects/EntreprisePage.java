@@ -6,10 +6,4 @@ import org.openqa.selenium.WebDriver;
 
 public class EntreprisePage extends Page {
 
-    public EntreprisePage(WebDriver driver) {
-        super(driver);
-        init(DesbugsPage.ENTREPRISE, container);
-    }
-
-    By container = By.className("");
 }

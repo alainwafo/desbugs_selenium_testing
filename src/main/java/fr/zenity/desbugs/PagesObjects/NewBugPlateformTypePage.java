@@ -6,10 +6,5 @@ import org.openqa.selenium.WebDriver;
 
 public class NewBugPlateformTypePage extends Page {
 
-    public NewBugPlateformTypePage(WebDriver driver) {
-        super(driver);
-        init(DesbugsPage.NEW_BUG, container);
-    }
 
-    By container = By.className("");
 }

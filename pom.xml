@@ -121,6 +121,12 @@
       <artifactId>gherkin</artifactId>
       <version>${gherkinVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>1.2.5</version>
+      <scope>test</scope>
+    </dependency>
     <!-- /cucumber -->
 
     <!-- restAssured Backend RestApi service testing-->
