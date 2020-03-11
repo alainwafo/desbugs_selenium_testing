@@ -8,6 +8,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
+import static fr.zenity.desbugs.Enum.Browser.*;
+
 public class LocalDriver implements Driver {
 
     private WebDriver webDriver = null;
@@ -33,13 +35,16 @@ public class LocalDriver implements Driver {
                 browser.getPath()
         );
 
-        return browser.toString().equals("firefox") ?
-               new FirefoxDriver(FirefoxOptions()) :
-               browser.toString().equals("edge") ?
-               new EdgeDriver(EdgeOptions()) :
-               browser.toString().equals("opera") ?
-               new OperaDriver(OperaOptions()) :
-               // default
-               new ChromeDriver(ChromeOptions());
+        switch(browser){
+            case FIREFOX:
+                return new FirefoxDriver(firefoxOptions());
+            case OPERA:
+                return new OperaDriver(operaOptions());
+            case EDGE:
+                return new EdgeDriver(edgeOptions());
+            case CHROME:
+            default:
+                return new ChromeDriver(chromeOptions());
+        }
     }
 }

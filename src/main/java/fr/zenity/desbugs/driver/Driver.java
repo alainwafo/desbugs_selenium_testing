@@ -17,7 +17,7 @@ public interface Driver {
     WebDriver getWebDriver();
     void closeDriver();
 
-    default ChromeOptions ChromeOptions(){
+    default ChromeOptions chromeOptions(){
         ChromeOptions chromeOpts = new ChromeOptions();
 
         chromeOpts.setAcceptInsecureCerts(true)
@@ -31,6 +31,10 @@ public interface Driver {
             chromeOpts.addArguments("--start-maximized");
         }
 
+        if( Config.propConfig.extensionPath.length() > 0 ){
+            chromeOpts.addExtensions(new File[]{(new File(Config.propConfig.extensionPath))});
+        }
+
         chromeOpts.addArguments("--enable-automation");
         chromeOpts.addArguments("--no-sandbox");
         chromeOpts.addArguments("--disable-infobars");
@@ -41,7 +45,7 @@ public interface Driver {
         return chromeOpts;
     }
 
-    default FirefoxOptions FirefoxOptions( ){
+    default FirefoxOptions firefoxOptions( ){
         FirefoxOptions firefoxOpts    = new FirefoxOptions();
         FirefoxProfile firefoxProfile = new FirefoxProfile();
 
@@ -62,12 +66,11 @@ public interface Driver {
         return firefoxOpts;
     }
 
-    default OperaOptions OperaOptions(){
+    default OperaOptions operaOptions(){
         OperaOptions operaOpts = new OperaOptions();
 
         operaOpts.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
         operaOpts.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-        //operaOpts.addExtensions(new File[]{(new File(Config.propConfig.extensionPath))});
 
         if(Config.propConfig.isProxy){
             operaOpts.setProxy(getProxy());
@@ -76,7 +79,7 @@ public interface Driver {
         return operaOpts;
     }
 
-    default EdgeOptions EdgeOptions(){
+    default EdgeOptions edgeOptions(){
         EdgeOptions edgeOpts = new EdgeOptions();
 
         if(Config.propConfig.isProxy){
