@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AccountPage extends Page {
 
@@ -11,26 +13,28 @@ public class AccountPage extends Page {
         super();
     }
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement  container ;
 
-    By generalSeletor = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_GENERAL + "\"]");
+    private By  generalSeletorBy = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_GENERAL + "\"]");
 
-    By identifierSeletor = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_IDENTIFY + "\"]");
+    private By  identifierSeletorBy = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_IDENTIFY + "\"]");
 
-    By securitySeletor = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_SECURITY + "\"]");
+    private By  securitySeletorBy = By.cssSelector("a.MuiButtonBase-root[href=\"" + DesbugsPage.ACCOUNT_SECURITY + "\"]");
 
-    By submitButton = By.className("selection.jss1183 > button[type=\"submit\"]");
+    @FindBy(className = "selection.jss1183 > button[type=\"submit\"]")
+    private WebElement  submitButton ;
 
     public void selectGeneralForm(){
-        click(generalSeletor);
+        click(driver.findElement(generalSeletorBy));
     }
 
     public void selectIdentifyForm(){
-        click(identifierSeletor);
+        click(driver.findElement(identifierSeletorBy));
     }
 
     public void selectSecurityForm(){
-        click(securitySeletor);
+        click(driver.findElement(securitySeletorBy));
     }
 
     public void submitForm(){

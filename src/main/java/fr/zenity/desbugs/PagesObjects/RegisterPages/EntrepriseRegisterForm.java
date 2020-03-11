@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class EntrepriseRegisterForm extends Page {
 
@@ -12,16 +14,26 @@ public class EntrepriseRegisterForm extends Page {
         waitVisibility(container);
     }
 
-    By container = By.className("scrollable-auto-tab-1");
-    By entrepriseSocietyInput = By.id("society");
-    By entreprisePhoneInput = By.id("phone-helper-text");
-    By entrepriseLastnameInput = By.id("lastnameE");
-    By entrepriseFirstnameInput = By.id("firstnameE");
-    By entrepriseUsernameInput = By.id("usernameE");
-    By entrepriseEmailInput = By.id("emailE");
-    By entreprisePasswordInput = By.id("passwordE");
-    By entrepriseConfirmPasswordInput = By.id("confirmPasswordE");
-    By entrepriseCguInput = By.id("CGUE");
+    @FindBy(className = "scrollable-auto-tab-1")
+    private WebElement container ;
+    @FindBy(id = "society")
+    private WebElement  entrepriseSocietyInput ;
+    @FindBy(id = "phone-helper-text")
+    private WebElement  entreprisePhoneInput ;
+    @FindBy(id = "lastnameE")
+    private WebElement  entrepriseLastnameInput ;
+    @FindBy(id = "firstnameE")
+    private WebElement  entrepriseFirstnameInput ;
+    @FindBy(id = "usernameE")
+    private WebElement  entrepriseUsernameInput ;
+    @FindBy(id = "emailE")
+    private WebElement  entrepriseEmailInput ;
+    @FindBy(id = "passwordE")
+    private WebElement  entreprisePasswordInput ;
+    @FindBy(id = "confirmPasswordE")
+    private WebElement  entrepriseConfirmPasswordInput ;
+    @FindBy(id = "CGUE")
+    private WebElement  entrepriseCguInput ;
 
     public void writeSociety(String society){
         writeText(entrepriseSocietyInput, society);

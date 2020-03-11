@@ -6,5 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class LoggedHomePage extends Page {
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement container ;
 }

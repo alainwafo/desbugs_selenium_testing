@@ -7,6 +7,7 @@ import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -17,35 +18,40 @@ public class EntreprisePage extends Page {
         init(DesbugsPage.ENTREPRISE, container);
     }
 
-    By container = By.className("MuiGrid-container");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement  container ;
 
     //TODO check selectors
-    By returnButton = By.className("jss4691");
+    @FindBy(className = "jss4691")
+    private WebElement  returnButton ;
 
-    By addEntrepriseButton = By.className("div.jss4715 > button");
+    @FindBy(className = "div.jss4715 > button")
+    private WebElement  addEntrepriseButton ;
 
-    By entrepriseInput = By.className("jss4826");
+    @FindBy(className = "jss4826")
+    private WebElement  entrepriseInput ;
 
-    By entrepriseList = By.className("ul[aria-labelledby=\"enterprise-label\"] > li");
+    @FindBy(className = "ul[aria-labelledby=\"enterprise-label\"] > li")
+    private List<WebElement>  entrepriseList ;
 
-    By submitButton = By.className("jss4827");
-    By cancelButton = By.className("jss4721");
+    @FindBy(className = "jss4827")
+    private WebElement  submitButton ;
+    @FindBy(className = "jss4721")
+    private WebElement  cancelButton ;
 
     public void openEntrepriseList(){
         click(entrepriseInput);
     }
 
     public void selectEnpriseInListByPosition(int index){
-        List<WebElement> entreprises = findElements(entrepriseList);
-        if (index < 1 || index > entreprises.size()) {
+        if (index < 1 || index > entrepriseList.size()) {
             index = 1;
         }
-        findElements(entrepriseList).get(index-1).click();
+        entrepriseList.get(index-1).click();
     }
 
     public void selectEntrepriseByName(String name) {
-            List<WebElement> entreprises = findElements(entrepriseList);
-            for (WebElement entreprise : entreprises) {
+            for (WebElement entreprise : entrepriseList) {
                 if (entreprise.getText().equalsIgnoreCase(name)) {
                     entreprise.click();
                     return;

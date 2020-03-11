@@ -7,5 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 public class RankingPage extends Page {
 
-    By container = By.id("gatsby-focus-wrapper");
+    @FindBy(id = "gatsby-focus-wrapper")
+    private WebElement container ;
 }

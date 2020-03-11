@@ -1,13 +1,16 @@
-package fr.zenity.desbugs.PagesObjects;
+package fr.zenity.desbugs.PagesObjects.BugsPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
+import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BugsPage extends Page {
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement  container ;
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

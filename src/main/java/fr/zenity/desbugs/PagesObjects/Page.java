@@ -1,19 +1,14 @@
 package fr.zenity.desbugs.PagesObjects;
 
-import fr.zenity.desbugs.Enum.Device;
-import fr.zenity.desbugs.Enum.UrlEnvironment;
-import fr.zenity.desbugs.configuration.Config;
-import fr.zenity.desbugs.driverManager.WebDriverManager;
+import fr.zenity.desbugs.Enum.DesbugsPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.function.Function;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElementsLocatedBy;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Page {
 
@@ -23,6 +18,9 @@ public class Page {
     protected WebDriverWait wait;
     protected Wait shortWait;
 
+    public void init(DesbugsPage pageName, WebElement container){
+        new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
+        waitVisibility(container);
     public final static Device          DEVICE  = Config.propConfig.device;
 
     public Page(){
@@ -33,26 +31,32 @@ public class Page {
     }
 
     //Wait Wrapper Method
-    public void waitVisibility(By elementBy) {
-        wait.until(visibilityOfAllElementsLocatedBy(elementBy));
+    public void waitVisibility(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
     //Click Method
-    public void click (By elementBy) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).click();
+    public void click (WebElement element) {
+        waitVisibility(element);
+        element.click();
     }
 
     //Write Text
-    public void writeText (By elementBy, String text) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).sendKeys(text);
+    public void writeText (WebElement element, String text) {
+        waitVisibility(element);
+        element.sendKeys(text);
     }
 
     //Read Text
-    public String readText (By elementBy) {
-        waitVisibility(elementBy);
-        return driver.findElement(elementBy).getText();
+    public String readText (WebElement element) {
+        waitVisibility(element);
+        return element.getText();
+    }
+
+    public boolean isSelected(WebElement element) {
+        waitVisibility(element);
+        String selected = element.getAttribute("aria-selected");
+        return !selected.isEmpty() || selected != null ? Boolean.parseBoolean(selected) : false;
     }
 
     protected <T>boolean waitUntil(Function<? super WebDriver,T> isTrue){
@@ -63,6 +67,4 @@ public class Page {
             return false;
         }
     }
-
-
 }

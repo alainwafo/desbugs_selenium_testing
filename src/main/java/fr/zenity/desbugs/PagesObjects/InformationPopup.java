@@ -10,18 +10,20 @@ import java.util.List;
 
 public class InformationPopup extends Page{
 
-    By container = By.className("MuiDialog-container");
-    By primaryButton = By.className("MuiButton-containedPrimary");
-    By buttons = By.cssSelector("MuiButton-root > span");
+    @FindBy(className = "MuiDialog-container")
+    private WebElement  container ;
+    @FindBy(className = "MuiButton-containedPrimary")
+    private WebElement  primaryButton ;
+    @FindBy(css = "MuiButton-root > span")
+    private List<WebElement>  buttons ;
 
     public void clickPrimarybutton() {
         click(primaryButton);
     }
 
     public void clickButtonWithText(String text) {
-        List<WebElement> list = findElements(buttons);
         for ( WebElement button:
-                list ) {
+                buttons ) {
             if (button.getText() == text) {button.click();break;}
         }
     }

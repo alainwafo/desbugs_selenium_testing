@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AccountIdentifierForm extends AccountPage {
 
@@ -12,11 +14,17 @@ public class AccountIdentifierForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_IDENTIFY, container);
     }
 
-    By container = By.cssSelector("div.MuiCard-root > form");
+    @FindBy(css = "div.MuiCard-root > form")
+    private WebElement  container;
 
-    By emailInput = By.id("newEmail");
-    By confirmEmailInput = By.id("confirmEmail");
-    By passwordInput = By.id("password");
+    @FindBy(id = "newEmail")
+    private WebElement emailInput;
+
+    @FindBy(id = "confirmEmail")
+    private WebElement  confirmEmailInput;
+
+    @FindBy(id = "password")
+    private WebElement  passwordInput;
 
     public void writeFirstname(String email){
         writeText(emailInput, email);

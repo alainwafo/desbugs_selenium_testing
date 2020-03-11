@@ -10,7 +10,8 @@ import java.util.Dictionary;
 
 public class MyBugsPage extends Page {
 
-    By container = By.className("MuiContainer-root");
+    @FindBy(className = "MuiContainer-root")
+    private WebElement container ;
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

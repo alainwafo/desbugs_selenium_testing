@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AccountSecurityForm extends AccountPage {
 
@@ -12,11 +14,15 @@ public class AccountSecurityForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_SECURITY, container);
     }
 
-    By container = By.className("MuiCard-root");
+    @FindBy(className = "MuiCard-root")
+    private WebElement  container ;
 
-    By oldPasswordInput = By.id("oldPassword");
-    By newPasswordInput = By.id("newPassword");
-    By confirmPasswordInput = By.id("confirmPassword");
+    @FindBy(id = "oldPassword")
+    private WebElement oldPasswordInput ;
+    @FindBy(id = "newPassword")
+    private WebElement  newPasswordInput ;
+    @FindBy(id = "confirmPassword")
+    private WebElement  confirmPasswordInput ;
 
     public void writeOldPassword(String oldPassword){
         writeText(oldPasswordInput, oldPassword);

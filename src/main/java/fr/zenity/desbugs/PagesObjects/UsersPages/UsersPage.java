@@ -1,7 +1,9 @@
-package fr.zenity.desbugs.PagesObjects;
+package fr.zenity.desbugs.PagesObjects.UsersPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
+import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

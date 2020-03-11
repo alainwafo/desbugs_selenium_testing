@@ -4,6 +4,8 @@ import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class MyBugsCommentsPage extends Page {
 
@@ -13,7 +15,8 @@ public class MyBugsCommentsPage extends Page {
     }
 
     //TODO : check selectors
-    By container = By.className("");
+    @FindBy(className = "")
+    private WebElement container ;
 
     //TODO : implement page
 }

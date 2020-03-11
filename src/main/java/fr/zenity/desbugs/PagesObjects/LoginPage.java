@@ -3,6 +3,8 @@ package fr.zenity.desbugs.PagesObjects;
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends Page {
 
@@ -11,10 +13,14 @@ public class LoginPage extends Page {
         init(DesbugsPage.LOGIN, container);
     }
 
-    By container = By.className("MuiGrid-container");
-    By userInput = By.id("user-login");
-    By passwordInput = By.id("password-login");
-    By submitButton = By.cssSelector("button[type=\"submit\"]");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement  container ;
+    @FindBy(id = "user-login")
+    private WebElement  userInput ;
+    @FindBy(id = "password-login")
+    private WebElement  passwordInput ;
+    @FindBy(css = "button[type=\"submit\"]")
+    private WebElement submitButton ;
 
     public void writeUser(String user){
         writeText(userInput, user);
