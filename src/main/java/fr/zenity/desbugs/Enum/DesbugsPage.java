@@ -33,7 +33,7 @@ public enum DesbugsPage {
             case NEW_BUG :
             case RANKING :
             case LEARN_MORE :
-                return PropertiesConfig.getInstance().env.getUrl(false, pageUrl);
+                return PropertiesConfig.getInstance().env.getUrl( pageUrl);
             case REGISTER :
             case LOGIN :
             case LOGGED_HOME :
@@ -49,11 +49,13 @@ public enum DesbugsPage {
             case ACCOUNT_GENERAL:
             case ACCOUNT_IDENTIFY:
             case ACCOUNT_SECURITY:
-                return PropertiesConfig.getInstance().env.getUrl(true, pageUrl);
+                //return PropertiesConfig.getInstance().env.getUrl( pageUrl);
+                return "";
             default:
-                return PropertiesConfig.getInstance().env.getUrl(false, null);
+                return PropertiesConfig.getInstance().env.getUrl( null);
         }
     }
+
 
     private DesbugsPage(String page){
             this.pageUrl = page;

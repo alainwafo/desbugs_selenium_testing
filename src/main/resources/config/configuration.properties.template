@@ -1,0 +1,14 @@
+# hasProxy route
+proxy.enabled=false
+proxy.config=
+
+# default environment launched
+front.environment=
+api.environment=
+
+# default browser
+test.frontOffice=
+browser.default=
+headless=false
+extensionPath=
+device=

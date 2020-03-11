@@ -2,7 +2,6 @@ package fr.zenity.desbugs.Enum;
 
 import com.google.common.base.Splitter;
 import fr.zenity.desbugs.utils.ResourcesUtils;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -13,6 +12,7 @@ import java.util.Properties;
 public enum UrlEnvironment {
 
     DEVELOP,
+    NONE,
     CUSTOM;
 
     private final static Logger LOGGER                  = Logger.getLogger(UrlEnvironment.class);
@@ -53,7 +53,7 @@ public enum UrlEnvironment {
 
     private String getUrl(String url, String endPoint) {
         return endPoint != null ?
-                url + (url.endsWith("/") || endPoint.startsWith("/") ? "" : "/") + endPoint
+                url+(url.endsWith("/")||endPoint.startsWith("/") ? "" : "/")+endPoint
                 : url;
     }
 
@@ -68,7 +68,7 @@ public enum UrlEnvironment {
             });
 
         }catch( IOException | NullPointerException e){
-            LOGGER.error(String.format("Cannot load [ %s ] properties file !", ENVIRONMENT_FILE_NAME));
+            LOGGER.error(String.format("Cannot load [ %s ] properties file !",ENVIRONMENT_FILE_NAME));
             throw new RuntimeException(e.getMessage());
         }
     }
