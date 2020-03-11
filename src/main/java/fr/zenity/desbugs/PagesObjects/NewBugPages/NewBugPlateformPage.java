@@ -16,10 +16,9 @@ public class NewBugPlateformPage extends Page {
         init(DesbugsPage.NEW_BUG, container);
     }
 
-    By container = By.className("jss4");
-    By returnButton = By.className("jss18");
-    By webContainer = By.className("jss5");
-    By softwareContainer = By.className("jss6");
+    By container = By.className("MuiGrid-container");
+    By webContainer = By.className("#root > section > div > divMuiGrid-item:nth-child(1)");
+    By softwareContainer = By.className("#root > section > div > div.MuiGrid-item:nth-child(2)");
 
     public void selectPlateformType (PlateformType type) {
         switch (type) {

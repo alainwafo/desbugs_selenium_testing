@@ -12,21 +12,20 @@ public class AccountGeneralForm extends AccountPage {
         init(DesbugsPage.ACCOUNT_GENERAL, container);
     }
 
-    //TODO : ask for better selector
     By container = By.className("MuiGrid-container");
 
-    By avatarContainer = By.className("jss1243");
-    By userDataContainer = By.className("jss1244");
-    By emailContainer = By.className("jss1245");
+    By avatarContainer = By.cssSelector("div.MuiCardContent-root > div.MuiAvatar-root");
+    By userDataContainer = By.cssSelector("div.MuiCardContent-root > h5.MuiTypography-root");
+    By emailContainer = By.cssSelector("div.MuiCardContent-root > h6.MuiTypography-root");
 
-    By deleteAvatarButton = By.cssSelector("div.jss1246 > button");
+    By deleteAvatarButton = By.cssSelector("div.MuiCardActions-root > button");
 
     By firstnameInput = By.id("newFirstname");
     By lastnameInput = By.id("newLastname");
     By usernameInput = By.id("newUsername");
     By phoneInput = By.id("newPhone");
 
-    public void getavatar(){
+    public void getAvatar(){
         readText(avatarContainer);
     }
 

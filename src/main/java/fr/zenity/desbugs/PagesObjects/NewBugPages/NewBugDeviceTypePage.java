@@ -16,11 +16,11 @@ public class NewBugDeviceTypePage extends Page {
         init(DesbugsPage.NEW_BUG, container);
     }
 
-    By container = By.className("jss23");
-    By returnButton = By.className("jss18");
-    By computerContainer = By.cssSelector("div.jss23 > div.MuiGrid-item[0]");
-    By padContainer = By.cssSelector("div.jss23 > div.MuiGrid-item[1]");
-    By smartphoneContainer = By.cssSelector("div.jss23 > div.MuiGrid-item[2]");
+    By container = By.className("MuiGrid-container");
+    By returnButton = By.className("#root > div:nth-child(2) > div > h3");
+    By computerContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(1)");
+    By padContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(2)");
+    By smartphoneContainer = By.cssSelector("#root > section > div > div.MuiGrid-item:nth-child(3)");
 
     public void selectBugPlateform (DeviceType type) {
         switch (type) {

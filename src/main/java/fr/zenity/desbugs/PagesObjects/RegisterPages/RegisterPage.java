@@ -13,7 +13,7 @@ public class RegisterPage extends Page {
         hunterForm = new HunterRegisterForm(driver);
     }
 
-    By container = By.className("jss1146");
+    By container = By.className("MuiGrid-container");
 
     //user register form
     HunterRegisterForm hunterForm;
@@ -21,9 +21,9 @@ public class RegisterPage extends Page {
 
     //entreprise register form
     EntrepriseRegisterForm entrepriseForm;
-    By entrepriseSeletor = By.id("scrollable-auto-tab-0");
+    By entrepriseSeletor = By.id("scrollable-auto-tab-1");
 
-    By submitButton = By.className("jss1152");
+    By submitButton = By.className("button.MuiButton-root[type=\"submit\"]");
 
     public void selectHunterForm(){
         click(hunterSeletor);

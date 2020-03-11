@@ -1,12 +1,13 @@
 package fr.zenity.desbugs.PagesObjects;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
+import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BugsPage extends Page {
 
-    By container = By.className("jss2386");
+    By container = By.className("MuiContainer-root");
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class EntreprisesVerifyPage extends Page {
 
-    By container = By.className("");
+    By container = By.className("MuiGrid-container");
 
     public enum Column{
         ENTREPRISE_NAME("Nom de l'entreprise"),
@@ -30,7 +30,16 @@ public class EntreprisesVerifyPage extends Page {
         table.orderColumnByHeaderName(columnName.get());
     }
 
-    public void getValueByColumnNameAndLineNumber(Column columnName, int lineNumber){
-        table.getValueByColumnNameAndLineNumber(columnName.get(), lineNumber);
+    public String getValueByColumnNameAndLineNumber(Column columnName, int lineNumber){
+        return table.getValueByColumnNameAndLineNumber(columnName.get(), lineNumber);
     }
+
+    public void clickLineByLineNumber(int lineNumber){
+        table.clickLineByLineNumber(lineNumber);
+    }
+
+    public void clickLineByColumnValue(String columnName, String searchValue){
+        table.clickLineByColumnValue(columnName, searchValue);
+    }
+
 }

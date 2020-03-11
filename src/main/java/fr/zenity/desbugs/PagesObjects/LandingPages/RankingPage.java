@@ -7,11 +7,5 @@ import org.openqa.selenium.WebDriver;
 
 public class RankingPage extends Page {
 
-    public RankingPage(WebDriver driver) {
-        super();
-        init(DesbugsPage.RANKING, container);
-    }
-
-    By container = By.className("");
-
+    By container = By.id("gatsby-focus-wrapper");
 }
