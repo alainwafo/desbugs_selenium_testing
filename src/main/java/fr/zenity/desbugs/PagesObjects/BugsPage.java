@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class BugsPage extends Page {
 
-    /*public BugsPage(WebDriver driver) {
+    public BugsPage(WebDriver driver) {
         super(driver);
         init(DesbugsPage.RANKING, container);
     }
 
-    By container = By.className("");*/
+    By container = By.className("");
 }

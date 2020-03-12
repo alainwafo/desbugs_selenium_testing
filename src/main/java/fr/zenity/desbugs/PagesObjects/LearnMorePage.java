@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class LearnMorePage extends Page {
 
-    /*public LearnMorePage(WebDriver driver) {
+    public LearnMorePage(WebDriver driver) {
         super(driver);
         init(DesbugsPage.RANKING, container);
     }
 
-    By container = By.className("");*/
+    By container = By.className("");
 }
