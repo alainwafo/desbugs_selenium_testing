@@ -8,10 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountPage extends Page {
 
-    public AccountPage() {
-        super();
-    }
-
     @FindBy(className = "MuiContainer-root")
     private WebElement  container ;
 

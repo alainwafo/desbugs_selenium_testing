@@ -6,11 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountSecurityForm extends AccountPage {
 
-    public AccountSecurityForm() {
-        super();
-        init(DesbugsPage.ACCOUNT_SECURITY, container);
-    }
-
     @FindBy(className = "MuiCard-root")
     private WebElement  container ;
 

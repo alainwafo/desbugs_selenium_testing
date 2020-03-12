@@ -6,11 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountGeneralForm extends AccountPage {
 
-    public AccountGeneralForm() {
-        super();
-        init(DesbugsPage.ACCOUNT_GENERAL, container);
-    }
-
     @FindBy(className = "MuiGrid-container")
     private WebElement container;
 

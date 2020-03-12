@@ -25,7 +25,7 @@ public class Page {
     public Page(){
         driver      = WebDriverManager.getWebDriver();
         js          = (JavascriptExecutor)driver;
-        shortWait   = new WebDriverWait(driver,30);
+        wait   = new WebDriverWait(driver,5);
         PageFactory.initElements(driver,this);
     }
 
@@ -36,7 +36,7 @@ public class Page {
 
     //Wait Wrapper Method
     public void waitVisibility(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOfAllElements(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     //Click Method

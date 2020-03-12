@@ -6,11 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountIdentifierForm extends AccountPage {
 
-    public AccountIdentifierForm() {
-        super();
-        init(DesbugsPage.ACCOUNT_IDENTIFY, container);
-    }
-
     @FindBy(css = "div.MuiCard-root > form")
     private WebElement  container;
 
