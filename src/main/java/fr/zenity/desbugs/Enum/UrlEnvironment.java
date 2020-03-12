@@ -6,8 +6,8 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 public enum UrlEnvironment {
 
@@ -38,23 +38,33 @@ public enum UrlEnvironment {
         return build(env,true);
     }
 
-    public void setUrls(String urlsProperties){
-        Map<String, String> urls = Splitter.on(",").withKeyValueSeparator("=").split(urlsProperties.replaceAll("\\s+", ""));
-        urlLanding = urls.get("urlLanding");
-        urlApp = urls.get("urlApp");
+    public void setUrls(String urlsProperties) {
+
+        if(urlsProperties.equals("null"))
+            urlLanding = urlApp = null;
+        else if (!urlsProperties.equals("null") && Pattern.compile("(\\w+\\s*\\=\\s*([^\\,]+)?(\\,|))+").matcher(urlsProperties).find()){
+
+            Map<String, String> urls = Splitter.on(",")
+                                        .withKeyValueSeparator("=")
+                                        .split(urlsProperties.replaceAll("\\s+", ""));
+            urlLanding  = urls.get("urlLanding");
+            urlApp      = urls.get("urlApp");
+        }
+        else
+            urlApp = urlsProperties;
     }
 
     public String getUrl(Boolean isApp, String endPoint){
         if(urlLanding==null) load();
         return isApp ?
-                getUrl(this.urlApp, endPoint)
-                : getUrl(this.urlLanding, endPoint);
+                getUrl(this.urlApp, endPoint) :
+                getUrl(this.urlLanding, endPoint);
     }
 
     private String getUrl(String url, String endPoint) {
         return endPoint != null ?
-                url+(url.endsWith("/")||endPoint.startsWith("/") ? "" : "/")+endPoint
-                : url;
+                url+(url.endsWith("/")||endPoint.startsWith("/") ? "" : "/")+endPoint :
+                url;
     }
 
     private void load(){

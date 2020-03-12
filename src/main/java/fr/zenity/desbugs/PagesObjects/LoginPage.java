@@ -1,5 +1,6 @@
 package fr.zenity.desbugs.PagesObjects;
 
+import fr.zenity.desbugs.Enum.DesbugsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +13,9 @@ public class LoginPage extends Page {
     private WebElement test;
 
     public void navigateToLoginPage(){
-        //.get(ENV_URL.getUrl( null ));
-        driver.get("http://google.fr");
+        driver.get(DesbugsPage.HOME.getUrl());
     }
+
 
     public void fillForm(String login, String password) {
     }
