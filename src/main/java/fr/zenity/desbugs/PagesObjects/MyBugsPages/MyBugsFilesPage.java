@@ -9,11 +9,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyBugsFilesPage extends Page {
 
-    public MyBugsFilesPage(WebDriver driver) {
-        super();
-        init(DesbugsPage.RANKING, container);
-    }
-
     //TODO : check selectors
     @FindBy(className = "")
     private WebElement container ;

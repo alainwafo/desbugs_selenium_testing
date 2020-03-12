@@ -2,7 +2,6 @@ package fr.zenity.desbugs.PagesObjects.NewBugPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,11 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class NewBugDetailPage extends Page {
-
-    public NewBugDetailPage(WebDriver driver) {
-        super();
-        init(DesbugsPage.NEW_BUG, container);
-    }
 
     @FindBy(className = "MuiGrid-container")
     private WebElement  container ;

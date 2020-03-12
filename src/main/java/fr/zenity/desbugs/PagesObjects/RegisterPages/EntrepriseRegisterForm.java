@@ -1,18 +1,11 @@
 package fr.zenity.desbugs.PagesObjects.RegisterPages;
 
-import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class EntrepriseRegisterForm extends Page {
-
-    public EntrepriseRegisterForm(WebDriver driver) {
-        super();
-        waitVisibility(container);
-    }
 
     @FindBy(className = "scrollable-auto-tab-1")
     private WebElement container ;

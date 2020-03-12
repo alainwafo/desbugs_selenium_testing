@@ -1,33 +1,37 @@
 package fr.zenity.desbugs.PagesObjects;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
-import org.openqa.selenium.By;
+import fr.zenity.desbugs.Enum.Device;
+import fr.zenity.desbugs.configuration.Config;
+import fr.zenity.desbugs.driverManager.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.function.Function;
 
 public class Page {
-
 
     protected WebDriver driver;
     protected JavascriptExecutor js;
     protected WebDriverWait wait;
     protected Wait shortWait;
 
-    public void init(DesbugsPage pageName, WebElement container){
-        new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
-        waitVisibility(container);
-    public final static Device          DEVICE  = Config.propConfig.device;
+    public final static Device DEVICE  = Config.propConfig.device;
 
     public Page(){
         driver      = WebDriverManager.getWebDriver();
         js          = (JavascriptExecutor)driver;
         shortWait   = new WebDriverWait(driver,30);
         PageFactory.initElements(driver,this);
+    }
+
+    public void init(DesbugsPage pageName, WebElement container) {
+        new WebDriverWait(driver, 60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
+        waitVisibility(container);
     }
 
     //Wait Wrapper Method

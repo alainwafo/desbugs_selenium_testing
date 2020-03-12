@@ -1,10 +1,7 @@
 package fr.zenity.desbugs.PagesObjects.EntreprisesWaittingPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
-import fr.zenity.desbugs.PagesObjects.EntreprisesPages.EntrepriseCreationPopup;
-import fr.zenity.desbugs.PagesObjects.MyBugsPages.MyBugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,11 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class EntreprisePage extends Page {
-
-    public EntreprisePage(WebDriver driver) {
-        super(driver);
-        init(DesbugsPage.ENTREPRISE, container);
-    }
 
     @FindBy(className = "MuiGrid-container")
     private WebElement  container ;

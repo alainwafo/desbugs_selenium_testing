@@ -1,19 +1,10 @@
 package fr.zenity.desbugs.PagesObjects.RegisterPages;
 
-import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends Page {
-
-    public RegisterPage(WebDriver driver) {
-        super();
-        init(DesbugsPage.REGISTER, container);
-        hunterForm = new HunterRegisterForm(driver);
-    }
 
     @FindBy(className = "MuiGrid-container")
     private WebElement container ;
@@ -39,7 +30,7 @@ public class RegisterPage extends Page {
 
     public void selectEntrepriseForm(){
         click(entrepriseSeletor);
-        entrepriseForm = new EntrepriseRegisterForm(driver);
+        entrepriseForm = new EntrepriseRegisterForm();
         hunterForm = null;
     }
 

@@ -1,17 +1,13 @@
 package fr.zenity.desbugs.PagesObjects.UsersPages;
 
 import fr.zenity.desbugs.PagesObjects.InformationPopup;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class UserCreationPopup extends InformationPopup {
 
-    public UserCreationPopup(WebDriver driver){
-        super(driver);
-    }
-
     @FindBy(id = "email-tester")
-    private WebElement  emailInput ;
+    private WebElement emailInput ;
 
     public enum Button{
         CANCEL("Annuler"),

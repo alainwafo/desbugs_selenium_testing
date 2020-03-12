@@ -1,17 +1,12 @@
 package fr.zenity.desbugs.PagesObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class TableComponant extends Page {
-    public TableComponant(WebDriver driver) {
-        super(driver);
-        waitVisibility(container);
-    }
 
     @FindBy(css = "table.MuiTable-root")
     private WebElement  container ;
