@@ -6,5 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountSecurityPage extends Page {
 
+    /*public AccountSecurityPage(WebDriver driver) {
+        super(driver);
+        init(DesbugsPage.RANKING, container);
+    }
+
+    By container = By.className("");*/
 
 }

@@ -23,13 +23,7 @@ public class Page {
     protected WebDriverWait wait;
     protected Wait shortWait;
 
-    public final static UrlEnvironment ENV_URL = Config.propConfig.env;
-    public final static Device         DEVICE  = Config.propConfig.device;
-
-   /*public void init(DesbugsPage pageName, By container){
-        new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
-        waitVisibility(container);
-    }*/
+    public final static Device          DEVICE  = Config.propConfig.device;
 
     public Page(){
         driver      = WebDriverManager.getWebDriver();

@@ -13,7 +13,7 @@
 log/
 drivers/
 src/main/resources/config/*.*
-
+src/main/resources/config/*.template
 
 #allure reporting
 .allure/

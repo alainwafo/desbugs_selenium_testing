@@ -6,5 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class EntreprisesCreatedPage extends Page {
 
+   /* public EntreprisesCreatedPage(WebDriver driver) {
+        super(driver);
+        init(DesbugsPage.RANKING, container);
+    }
 
+    By container = By.className("");*/
 }
