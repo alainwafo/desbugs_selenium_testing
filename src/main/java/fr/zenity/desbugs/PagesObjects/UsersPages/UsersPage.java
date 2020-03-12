@@ -2,11 +2,13 @@ package fr.zenity.desbugs.PagesObjects.UsersPages;
 
 import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.PagesObjects.TableComponant;
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class UsersPage extends Page {
 
-    By container = By.className("jss2");
+    @FindBy(className = "jss2")
+    private WebElement container ;
 
     public enum Column{
         EMAIL("Email"),

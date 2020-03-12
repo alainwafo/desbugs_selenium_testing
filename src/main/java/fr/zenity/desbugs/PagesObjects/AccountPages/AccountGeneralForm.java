@@ -1,6 +1,7 @@
 package fr.zenity.desbugs.PagesObjects.AccountPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

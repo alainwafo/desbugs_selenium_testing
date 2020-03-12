@@ -5,8 +5,6 @@ import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Dictionary;
-
 public class MyBugsPage extends Page {
 
     @FindBy(className = "MuiContainer-root")

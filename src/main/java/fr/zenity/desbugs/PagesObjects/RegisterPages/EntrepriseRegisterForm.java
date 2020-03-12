@@ -1,7 +1,6 @@
 package fr.zenity.desbugs.PagesObjects.RegisterPages;
 
 import fr.zenity.desbugs.PagesObjects.Page;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

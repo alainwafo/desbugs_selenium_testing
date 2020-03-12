@@ -1,7 +1,6 @@
 package fr.zenity.desbugs.PagesObjects.EntreprisesPages;
 
 import fr.zenity.desbugs.PagesObjects.InformationPopup;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

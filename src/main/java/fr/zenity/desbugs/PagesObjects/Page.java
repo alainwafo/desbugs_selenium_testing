@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.function.Function;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Page {
 
     protected WebDriver driver;
@@ -29,8 +32,8 @@ public class Page {
         PageFactory.initElements(driver,this);
     }
 
-    public void init(DesbugsPage pageName, WebElement container) {
-        new WebDriverWait(driver, 60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
+    public void init(DesbugsPage pageName, WebElement container){
+        new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
         waitVisibility(container);
     }
 

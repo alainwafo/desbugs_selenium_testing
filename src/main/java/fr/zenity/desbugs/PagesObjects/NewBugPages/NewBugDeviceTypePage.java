@@ -1,6 +1,5 @@
 package fr.zenity.desbugs.PagesObjects.NewBugPages;
 
-
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -24,7 +24,7 @@ public class RegisterPage extends Page {
 
     public void selectHunterForm(){
         click(hunterSeletor);
-        hunterForm = new HunterRegisterForm(driver);
+        hunterForm = new HunterRegisterForm();
         entrepriseForm = null;
     }
 
