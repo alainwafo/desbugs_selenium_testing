@@ -8,8 +8,9 @@ public class AccountSecurityPage extends Page {
 
     public AccountSecurityPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.ACCOUNT_SECURITY, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");
+
 }

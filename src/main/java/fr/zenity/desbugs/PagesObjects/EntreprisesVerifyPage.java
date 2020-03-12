@@ -8,7 +8,7 @@ public class EntreprisesVerifyPage extends Page {
 
     public EntreprisesVerifyPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.ENTREPRISES_VERIFY, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

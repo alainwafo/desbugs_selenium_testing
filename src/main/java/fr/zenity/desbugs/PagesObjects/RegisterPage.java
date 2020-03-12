@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage extends Page {
 
-    public RegisterPage(WebDriver driver) {
+   public RegisterPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.REGISTER, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

@@ -8,7 +8,7 @@ public class MyBugsFilesPage extends Page {
 
     public MyBugsFilesPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.MY_BUGS_FILES, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

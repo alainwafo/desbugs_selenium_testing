@@ -8,7 +8,7 @@ public class EntreprisePage extends Page {
 
     public EntreprisePage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.ENTREPRISE, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

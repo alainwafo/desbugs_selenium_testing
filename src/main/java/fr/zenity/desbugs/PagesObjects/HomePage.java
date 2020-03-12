@@ -8,7 +8,7 @@ public class HomePage extends Page {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.HOME, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

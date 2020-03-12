@@ -8,7 +8,7 @@ public class LearnMorePage extends Page {
 
     public LearnMorePage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.LEARN_MORE, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

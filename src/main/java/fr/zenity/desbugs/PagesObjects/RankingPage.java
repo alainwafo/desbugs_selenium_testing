@@ -12,4 +12,5 @@ public class RankingPage extends Page {
     }
 
     By container = By.className("");
+
 }

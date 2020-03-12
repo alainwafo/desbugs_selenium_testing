@@ -8,7 +8,7 @@ public class BlogPage extends Page {
 
     public BlogPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.BLOG, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");

@@ -8,8 +8,9 @@ public class AccountIdentifierPage extends Page {
 
     public AccountIdentifierPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.ACCOUNT_IDENTIFY, container);
+        init(DesbugsPage.RANKING, container);
     }
 
     By container = By.className("");
+
 }

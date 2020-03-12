@@ -2,7 +2,11 @@ package fr.zenity.desbugs.Enum;
 
 import fr.zenity.desbugs.configuration.PropertiesConfig;
 
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
+
 public enum DesbugsPage {
+
     HOME("/"),
     BLOG("/blog"),
     NEW_BUG("/bugs/new"),
@@ -12,28 +16,31 @@ public enum DesbugsPage {
     LOGIN("/login"),
     LOGGED_HOME("/"),
     MY_BUGS("/me/bugs"),
-    MY_BUGS_DETAILS("/me/bugs/{{id}}/details"),
-    MY_BUGS_FILES("/me/bugs/{{id}}/files"),
-    MY_BUGS_COMMENTS("/me/bugs/{{id}}/comments"),
+    MY_BUGS_DETAILS("/me/bugs/%s/details"),
+    MY_BUGS_FILES("/me/bugs/%s/files"),
+    MY_BUGS_COMMENTS("/me/bugs/%s/comments"),
     USERS("/users"),
     BUGS("/bugs"),
     ENTREPRISES_VERIFY("/enterprises/verify"),
     ENTREPRSES_CREATED("/enterprises/created"),
-    ENTREPRISE("/enterprises/verify/{{id}}"),
+    ENTREPRISE("/enterprises/verify/%s"),
     ACCOUNT_GENERAL("/account/general"),
     ACCOUNT_IDENTIFY("/account/identifier"),
     ACCOUNT_SECURITY("/account/security");
 
     private String pageUrl;
 
-    public String getUrl(){
+    public String getUrl(String ... args){
+        AtomicReference<String> urlA = new AtomicReference<>(null);
+
         switch(this){
             case HOME :
             case BLOG :
             case NEW_BUG :
             case RANKING :
             case LEARN_MORE :
-                return PropertiesConfig.getInstance().env.getUrl( pageUrl);
+                urlA.set(PropertiesConfig.getInstance().env.getUrl( false, pageUrl));
+                break;
             case REGISTER :
             case LOGIN :
             case LOGGED_HOME :
@@ -49,13 +56,24 @@ public enum DesbugsPage {
             case ACCOUNT_GENERAL:
             case ACCOUNT_IDENTIFY:
             case ACCOUNT_SECURITY:
-                //return PropertiesConfig.getInstance().env.getUrl( pageUrl);
-                return "";
+                urlA.set(PropertiesConfig.getInstance().env.getUrl( true, pageUrl));
+                break;
             default:
-                return PropertiesConfig.getInstance().env.getUrl( null);
+                urlA.set(PropertiesConfig.getInstance().env.getUrl( false,null));
+                break;
         }
-    }
 
+        if( args.length > 0 ){
+
+            Arrays.asList(args)
+            .stream()
+            .forEach(elementValue->{
+                urlA.set( String.format( urlA.get(), elementValue ) );
+            });
+        }
+
+        return urlA.get();
+    }
 
     private DesbugsPage(String page){
             this.pageUrl = page;
