@@ -42,7 +42,7 @@ public enum UrlEnvironment {
 
         if(urlsProperties.equals("null"))
             urlLanding = urlApp = null;
-        else if (!urlsProperties.equals("null") && Pattern.compile("(\\w+\\s*\\=\\s*([^\\,]+)?(\\,|))+").matcher(urlsProperties).find()){
+        else if (Pattern.compile("(\\w+\\s*\\=\\s*([^\\,]+)?(\\,|))+").matcher(urlsProperties).find()){
 
             Map<String, String> urls = Splitter.on(",")
                                         .withKeyValueSeparator("=")
