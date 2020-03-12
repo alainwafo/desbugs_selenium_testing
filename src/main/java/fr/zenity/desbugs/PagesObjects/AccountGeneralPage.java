@@ -8,7 +8,7 @@ public class AccountGeneralPage extends Page {
 
     public AccountGeneralPage(WebDriver driver) {
         super(driver);
-        init(DesbugsPage.RANKING, container);
+        init(DesbugsPage.ACCOUNT_GENERAL, container);
     }
 
     By container = By.className("");
