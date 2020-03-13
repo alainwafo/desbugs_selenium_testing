@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "./src/test/resources/features",
         strict = true,
-        glue = {"fr.zenity.desbugs.step_definitions","fr/zenity/desbugs/PagesObjects"},
+        glue = {"fr.zenity.desbugs.steps","fr/zenity/desbugs/PagesObjects"},
         tags = "@test",
         plugin = {
                 "pretty",

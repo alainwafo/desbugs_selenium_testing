@@ -1,25 +1,37 @@
 package fr.zenity.desbugs.PagesObjects;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends Page {
 
-    private static By container = By.className("");
+    @FindBy(className = "MuiGrid-container")
+    private WebElement  container ;
+    @FindBy(id = "user-login")
+    private WebElement  userInput ;
+    @FindBy(id = "password-login")
+    private WebElement  passwordInput ;
+    @FindBy(css = "button[type=\"submit\"]")
+    private WebElement submitButton ;
 
-    @FindBy(id="test")
-    private WebElement test;
-
-    public void navigateToLoginPage(){
-        driver.get(DesbugsPage.HOME.getUrl());
+    public void waitPageToBeLoad(){
+        init(DesbugsPage.LOGIN, container);
     }
 
-
-    public void fillForm(String login, String password) {
+    public void navigateToLoginPage() {
+        driver.navigate().to(DesbugsPage.LOGIN.getUrl());
     }
 
-    public void validForm() {
+    public void writeUser(String user){
+        writeText(userInput, user);
+    }
+
+    public void writePassword(String password){
+        writeText(passwordInput, password);
+    }
+
+    public void submitForm(){
+        click(submitButton);
     }
 }
