@@ -19,10 +19,6 @@ public class LoginPage extends Page {
         init(DesbugsPage.LOGIN, container);
     }
 
-    public void navigateToLoginPage() {
-        driver.navigate().to(DesbugsPage.LOGIN.getUrl());
-    }
-
     public void writeUser(String user){
         writeText(userInput, user);
     }
