@@ -33,7 +33,7 @@ public class Page {
     }
 
     public void init(DesbugsPage pageName, WebElement container){
-        new WebDriverWait(driver,60).until(ExpectedConditions.urlMatches(pageName.getUrl()));
+        new WebDriverWait(driver,60).until(ExpectedConditions.urlToBe(pageName.getUrl()));
         waitVisibility(container);
     }
 

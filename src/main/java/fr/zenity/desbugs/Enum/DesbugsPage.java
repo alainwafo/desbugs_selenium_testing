@@ -14,7 +14,7 @@ public enum DesbugsPage {
     LEARN_MORE("/learn-more"),
     REGISTER("/register"),
     LOGIN("/login"),
-    LOGGED_HOME("/"),
+    LOGGED_HOME(""),
     MY_BUGS("/me/bugs"),
     MY_BUGS_DETAILS("/me/bugs/%s/details"),
     MY_BUGS_FILES("/me/bugs/%s/files"),

@@ -1,8 +1,9 @@
 package fr.zenity.desbugs.configuration;
 
+import fr.zenity.desbugs.Enum.ApiUrlEnvironment;
 import fr.zenity.desbugs.Enum.Browser;
 import fr.zenity.desbugs.Enum.Device;
-import fr.zenity.desbugs.Enum.UrlEnvironment;
+import fr.zenity.desbugs.Enum.FrontUrlEnvironment;
 import org.apache.log4j.Logger;
 
 public enum PropertiesConfig {
@@ -13,8 +14,8 @@ public enum PropertiesConfig {
 
     private PropertiesFile prop = PropertiesFile.getInstance();
 
-    public UrlEnvironment env;
-    public UrlEnvironment apiEnv;
+    public FrontUrlEnvironment env;
+    public ApiUrlEnvironment apiEnv;
 
     public Browser browser;
     public Device device;
@@ -26,9 +27,9 @@ public enum PropertiesConfig {
 
         isProxy       = Boolean.valueOf(System.getProperty("proxy",prop.get("proxy.enabled","false")));
         isFrontal     = Boolean.valueOf(System.getProperty("frontal",prop.get("test.frontOffice","true")));
-        env           = UrlEnvironment.init(System.getProperty("env",prop.get("front.environment","develop")));
+        env           = FrontUrlEnvironment.init(System.getProperty("env",prop.get("front.environment","develop")));
         device        = Device.valueOf(System.getProperty("device",prop.get("device","desktop").toUpperCase()));
-        apiEnv        = UrlEnvironment.init(System.getProperty("apiEnv",prop.get("api.environment","none")));
+        apiEnv        = ApiUrlEnvironment.init(System.getProperty("apiEnv",prop.get("api.environment","none")));
         browser       = Browser.init(System.getProperty("browser",prop.get("browser.default","chrome")));
         headless      = Boolean.valueOf(System.getProperty("headless",prop.get("headless","false")));
 
