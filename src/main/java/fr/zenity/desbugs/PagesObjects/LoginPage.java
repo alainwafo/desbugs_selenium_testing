@@ -14,6 +14,8 @@ public class LoginPage extends Page {
     private WebElement  passwordInput ;
     @FindBy(css = "button[type=\"submit\"]")
     private WebElement submitButton ;
+    @FindBy(css = "div[role=\"porgressbar\"]")
+    private WebElement progressbar;
 
     public void waitPageToBeLoad(){
         init(DesbugsPage.LOGIN, container);
@@ -27,7 +29,13 @@ public class LoginPage extends Page {
         writeText(passwordInput, password);
     }
 
-    public void submitForm(){
+    public void submitForm() {
         click(submitButton);
+        //wait the form to be submit
+        waitLoading(progressbar);
+    }
+
+    public boolean isPageOpen() {
+        return isPageOpened(DesbugsPage.LOGIN, container);
     }
 }

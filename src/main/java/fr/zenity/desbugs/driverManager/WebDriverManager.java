@@ -13,8 +13,6 @@ public final class WebDriverManager {
 
     private static ThreadLocal<LocalDriver> driver = new ThreadLocal<>();
 
-    public WebDriverManager(){}
-
     public static WebDriver getWebDriver( ){
         return driver.get().getWebDriver();
     }

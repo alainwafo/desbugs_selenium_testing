@@ -1,5 +1,6 @@
 package fr.zenity.desbugs.PagesObjects.MyBugsPages;
 
+import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.PagesObjects.TableComponant;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,10 @@ public class MyBugsPage extends Page {
 
     @FindBy(className = "MuiContainer-root")
     private WebElement container ;
+
+    public boolean isPageOpen() {
+        return isPageOpened(DesbugsPage.MY_BUGS, container);
+    }
 
     public enum Column{
         APPLICATION_NAME("Nom du site/application"),

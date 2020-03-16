@@ -10,17 +10,4 @@ import org.testng.annotations.BeforeClass;
 
 public abstract class BaseRunner extends AbstractTestNGCucumberTests {
 
-    private static WebDriver driver;
-
-    @BeforeClass
-    public static void init_webDriver( ){
-        WebDriverManager.initWebDriver();
-        driver = WebDriverManager.getWebDriver();
-    }
-
-    @AfterClass(alwaysRun = true)
-    private static void tearDown(){
-        WebDriverManager.getWebDriver().quit();
-    }
-
 }

@@ -14,6 +14,10 @@ public class InformationPopup extends Page{
     @FindBy(css = "MuiButton-root > span")
     private List<WebElement>  buttons ;
 
+    public InformationPopup(){
+        waitVisibility(container);
+    }
+
     public void clickPrimarybutton() {
         click(primaryButton);
     }
