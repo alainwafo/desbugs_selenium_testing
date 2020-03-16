@@ -30,13 +30,16 @@ public enum DesbugsPage {
 
     private String pageUrl;
 
+    public String value(){
+        return pageUrl;
+    }
+
     public String getUrl(String ... args){
         AtomicReference<String> urlA = new AtomicReference<>(null);
 
         switch(this){
             case HOME :
             case BLOG :
-            case NEW_BUG :
             case RANKING :
             case LEARN_MORE :
                 urlA.set(PropertiesConfig.getInstance().env.getUrl( false, pageUrl));
@@ -44,6 +47,7 @@ public enum DesbugsPage {
             case REGISTER :
             case LOGIN :
             case LOGGED_HOME :
+            case NEW_BUG :
             case MY_BUGS :
             case MY_BUGS_DETAILS :
             case MY_BUGS_FILES :

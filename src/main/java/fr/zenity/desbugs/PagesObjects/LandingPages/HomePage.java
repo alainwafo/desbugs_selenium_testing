@@ -2,8 +2,6 @@ package fr.zenity.desbugs.PagesObjects.LandingPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
-import fr.zenity.desbugs.PagesObjects.UsersPages.LandingMenuComponant;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
