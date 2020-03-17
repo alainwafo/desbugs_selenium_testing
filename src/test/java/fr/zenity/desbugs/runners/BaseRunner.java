@@ -1,26 +1,36 @@
 package fr.zenity.desbugs.runners;
 
+import fr.zenity.desbugs.configuration.Config;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
-
-
 import fr.zenity.desbugs.driverManager.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
-public abstract class BaseRunner extends AbstractTestNGCucumberTests {
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.*;
+
+public class BaseRunner extends AbstractTestNGCucumberTests {
 
     private static WebDriver driver;
 
-    @BeforeClass
-    public static void init_webDriver( ){
-        WebDriverManager.initWebDriver();
-        driver = WebDriverManager.getWebDriver();
+    @BeforeSuite
+    public void init_webDriver( ){
+        if(Config.propConfig.isFrontal) {
+            WebDriverManager.initWebDriver();
+            driver = WebDriverManager.getWebDriver();
+        }
     }
 
-    @AfterClass(alwaysRun = true)
-    private static void tearDown(){
-        WebDriverManager.getWebDriver().quit();
+    @AfterMethod
+    public void cleanBrowser(){
+        if(Config.propConfig.isFrontal) {
+            driver.manage().deleteAllCookies();
+        }
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void delete_webDriver(){
+        if(Config.propConfig.isFrontal) {
+            WebDriverManager.getWebDriver().quit();
+        }
     }
 
 }
