@@ -41,7 +41,6 @@ public class NewBugDetailPage extends Page {
     }
 
     public void writeDescription(String desc) {
-        //setWebElementTextContent(bugDescriptionInput, desc);
         click(bugDescriptionInput);
         driver.switchTo().activeElement().sendKeys(desc);
     }

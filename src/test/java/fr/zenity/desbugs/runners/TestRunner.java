@@ -19,21 +19,4 @@ import org.testng.annotations.*;
         }
 )
 public class TestRunner extends BaseRunner {
-
-        private static WebDriverManager driver;
-
-        @BeforeSuite
-        public void init_webDriver( ){
-                driver.getInstance().initWebDriver();
-        }
-
-        @AfterMethod
-        public void cleanBrowser(){
-                driver.getInstance().getWebDriver().manage().deleteAllCookies();
-        }
-
-        @AfterSuite(alwaysRun = true)
-        public void delete_webDriver(){
-                WebDriverManager.getWebDriver().quit();
-        }
 }

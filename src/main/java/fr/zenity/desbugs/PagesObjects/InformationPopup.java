@@ -11,7 +11,7 @@ public class InformationPopup extends Page{
     private WebElement  container ;
     @FindBy(className = "MuiButton-containedPrimary")
     private WebElement  primaryButton ;
-    @FindBy(css = "MuiButton-root > span")
+    @FindBy(css = "div.MuiDialogActions-root > button.MuiButton-root")
     private List<WebElement>  buttons ;
 
     public InformationPopup(){
@@ -25,7 +25,7 @@ public class InformationPopup extends Page{
     public void clickButtonWithText(String text) {
         for ( WebElement button:
                 buttons ) {
-            if (button.getText() == text) {button.click();break;}
+            if (button.getText().equals(text)) {button.click();return;}
         }
     }
 }

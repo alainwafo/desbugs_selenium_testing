@@ -24,6 +24,7 @@ public class NewBugPlateformSteps implements En {
         });
 
         Given("^I close the information popUp$", () -> {
+            newBugPlateformPage.waitPageToBeLoad();
             newBugPlateformPage.closeInformationPopup();
         });
     }
