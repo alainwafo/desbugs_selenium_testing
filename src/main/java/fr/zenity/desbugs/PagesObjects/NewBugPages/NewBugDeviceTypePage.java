@@ -2,17 +2,14 @@ package fr.zenity.desbugs.PagesObjects.NewBugPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.classes.Bug;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class NewBugDeviceTypePage extends Page {
 
-    public enum DeviceType {
-        COMPUTER, PAD, SMARTPHONE;
-    }
-
-    private By containerBy = By.cssSelector("div.MuiContainer-root > div > div > div > div.MuiGrid-container");
+    private By containerBy = By.cssSelector("div > div > div.MuiGrid-container");
 
     @FindBy(className = "#root > div:nth-child(2) > div > h3")
     private WebElement  returnButton ;
@@ -23,7 +20,7 @@ public class NewBugDeviceTypePage extends Page {
 
     private By  smartphoneContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(3)");
 
-    public void clickDeviceType (DeviceType type) {
+    public void clickDeviceType (Bug.DeviceType type) {
         switch (type) {
             case COMPUTER:
                 click(driver.findElement(computerContainerBy));
@@ -38,9 +35,9 @@ public class NewBugDeviceTypePage extends Page {
     }
 
     public void clickDeviceType(String device) {
-        DeviceType dv = null;
+        Bug.DeviceType dv = null;
         try{
-            dv = DeviceType.valueOf(device);
+            dv = Bug.DeviceType.valueOf(device);
         }catch(Exception e) {
             LOGGER.error(String.format("The device \"%s\" does not exist.", device));
         }

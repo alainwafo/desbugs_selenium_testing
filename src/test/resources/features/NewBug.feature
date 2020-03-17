@@ -1,3 +1,4 @@
+@test
 Feature: New Bug Feature
   Verify if user is able to create a new bug
 
@@ -59,7 +60,6 @@ Feature: New Bug Feature
       | username  |   password  | plateform |   device    | webSiteName | webSiteUrl  |  bugDescription |  os   |  browser  |
       |   hunter  |   hunter    |    WEB    |   COMPUTER  | webSiteName  | webSiteUrl.com  |     bugDescriptionComplexe  | os  | browser|
 
-  @test
   Scenario Outline: Create a bug as a gost user
     Given I am on the New Bug Plateform Page
     And I close the information popUp
