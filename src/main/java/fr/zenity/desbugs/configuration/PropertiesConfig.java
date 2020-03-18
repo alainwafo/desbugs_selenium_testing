@@ -21,7 +21,6 @@ public enum PropertiesConfig {
     public Boolean isProxy;
     public Boolean isFrontal;
     public Boolean headless;
-    public String extensionPath;
 
     PropertiesConfig( ) {
 
@@ -32,7 +31,6 @@ public enum PropertiesConfig {
         apiEnv        = UrlEnvironment.init(System.getProperty("apiEnv",prop.get("api.environment","none")));
         browser       = Browser.init(System.getProperty("browser",prop.get("browser.default","chrome")));
         headless      = Boolean.valueOf(System.getProperty("headless",prop.get("headless","false")));
-        extensionPath = System.getProperty("extensionPath",prop.get("extensionPath",""));
 
         LOGGER.info("Proxy is enabled = "+isProxy.toString());
         LOGGER.info("Front-Office test is enabled = "+isFrontal.toString());

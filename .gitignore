@@ -12,9 +12,9 @@
 *.log
 log/
 drivers/
-src/main/resources/config/*.*
-src/main/resources/config/*.template
-src/main/resources/config/*.properties
+#src/main/resources/config/*.*
+#src/main/resources/config/*.template
+#src/main/resources/config/*.properties
 
 #allure reporting
 .allure/

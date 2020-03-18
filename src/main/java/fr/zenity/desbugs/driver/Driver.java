@@ -31,10 +31,6 @@ public interface Driver {
             chromeOpts.addArguments("--start-maximized");
         }
 
-        if( Config.propConfig.extensionPath.length() > 0 ){
-            chromeOpts.addExtensions(new File[]{(new File(Config.propConfig.extensionPath))});
-        }
-
         chromeOpts.addArguments("--enable-automation");
         chromeOpts.addArguments("--no-sandbox");
         chromeOpts.addArguments("--disable-infobars");

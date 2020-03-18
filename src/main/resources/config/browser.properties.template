@@ -1,4 +1,4 @@
-chrome=
-firefox=
-opera=
-edge=
+chrome=drivers/
+firefox=drivers/
+opera=drivers/
+edge=drivers/

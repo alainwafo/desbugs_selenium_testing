@@ -1,14 +1,14 @@
 # hasProxy route
 proxy.enabled=false
-proxy.config=
+proxy.config=0.0.0.0:8080
 
 # default environment launched
-front.environment=
-api.environment=
+front.environment=develop
+api.environment=api
 
 # default browser
-test.frontOffice=
-browser.default=
+test.frontOffice=true
+browser.default=chrome
 headless=false
 extensionPath=
-device=
+device=desktop
