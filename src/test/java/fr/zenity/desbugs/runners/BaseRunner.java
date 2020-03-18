@@ -9,10 +9,11 @@ import org.testng.annotations.*;
 
 public class BaseRunner extends AbstractTestNGCucumberTests {
 
-    private static WebDriver driver;
+    private static WebDriverManager driver;
 
     @BeforeSuite
     public void init_webDriver( ){
+<<<<<<< HEAD
         if(Config.propConfig.isFrontal) {
             WebDriverManager.initWebDriver();
             driver = WebDriverManager.getWebDriver();
@@ -34,3 +35,18 @@ public class BaseRunner extends AbstractTestNGCucumberTests {
     }
 
 }
+=======
+        driver.getInstance().initWebDriver();
+    }
+
+    @AfterMethod
+    public void cleanBrowser(){
+        driver.getInstance().getWebDriver().manage().deleteAllCookies();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void delete_webDriver(){
+        WebDriverManager.getWebDriver().quit();
+    }
+}
+>>>>>>> ef727914088beccbfd7f46ae0a177aabd724dad3
