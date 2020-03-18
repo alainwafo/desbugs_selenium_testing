@@ -37,11 +37,11 @@ Don't forget to take off 'template' extension about the configurations file name
 
 ##### WebDriver configuration
 
-Directory webDrivers : ``Drivers/`` 
+WebDrivers directory : ``Drivers/`` 
 
 + [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 + [Gecko driver](https://github.com/mozilla/geckodriver/releases)
-+ [Opera drivr](https://github.com/operasoftware/operachromiumdriver/releases)
++ [Opera driver](https://github.com/operasoftware/operachromiumdriver/releases)
 + [Edge driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 Put webDrivers binaries in the ``Drivers/`` directory located at the root of your local repository (if this directory doesn't exists, create it yourself) and then
@@ -164,7 +164,7 @@ $ allure serve target/allure-results
 mvn clean test -Dcucumber.options="--tags @non-reg" allure:serve
 ```
 
-Sometimes, its possible after to have run test that allure report don't be launch correctly if you be in this situation, look brievely if directory 'allure-results" had been build corectly in 'target/' and then use this command :
+Sometimes, its possible after to have run a test that allure report don't be launched correctly if you be in this situation, look brievely if directory 'allure-results" had been build corectly in 'target/' and then use this command :
 
 ```
 allure serve target/allure-results
@@ -206,10 +206,10 @@ Debugs_selenium_testing/
 +--- Readme.md
 ```
 
-Directory ``src/main/java`` contains all classes and enumerations page that's allows to :
+Directory ``src/main/java`` package ``fr.zenity.debugs`` contains all classes and enumerations page that's allows to :
 - initialize framework configurations
 - instantiate the webdriver
-- Pages Object classes
+- instantiate Pages Object classes
 
 Directory ``src/main/resources/`` contains all configurations files
 + allure 2 : environment.properties, allure.properties, configuration.json
