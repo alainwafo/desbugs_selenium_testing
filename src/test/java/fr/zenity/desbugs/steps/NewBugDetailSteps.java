@@ -1,7 +1,6 @@
 package fr.zenity.desbugs.steps;
 
 import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugDetailPage;
-import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugDeviceTypePage;
 import fr.zenity.desbugs.driverManager.WebDriverManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java8.En;

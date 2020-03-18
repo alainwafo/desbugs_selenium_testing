@@ -17,6 +17,8 @@ drivers/
 #src/main/resources/config/*.properties
 
 #allure reporting
+allure-results/
+allure-results/*.json
 .allure/
 target/
 

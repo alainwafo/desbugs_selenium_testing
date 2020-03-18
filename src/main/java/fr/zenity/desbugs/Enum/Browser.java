@@ -3,6 +3,7 @@ package fr.zenity.desbugs.Enum;
 import fr.zenity.desbugs.utils.ResourcesUtils;
 import org.apache.log4j.Logger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,7 +15,7 @@ public enum Browser {
     EDGE;
 
     private final static Logger LOGGER              = Logger.getLogger(Browser.class);
-    private final static String BROWSER_FILE_NAME   = "config/browser.properties";
+    private final static String BROWSER_FILE_NAME   = "src/main/resources/config/browser.properties";
 
     private String webDriverPath;
     private String webDriverSystemProperty;
@@ -46,7 +47,7 @@ public enum Browser {
     private void load(){
         try{
             Properties browserProp = new Properties();
-            browserProp.load(ResourcesUtils.getStreamResources(BROWSER_FILE_NAME));
+            browserProp.load(new FileInputStream(BROWSER_FILE_NAME));
             browserProp.forEach((key,value)->{
                 Browser.valueOf(key.toString().toUpperCase()).setPath(value.toString());
             });

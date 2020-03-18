@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 import fr.zenity.desbugs.utils.ResourcesUtils;
 import org.apache.log4j.Logger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
@@ -13,11 +14,10 @@ public enum FrontUrlEnvironment{
 
     DEVELOP,
     NONE,
-    API,
     CUSTOM;
 
     private final static Logger LOGGER                  = Logger.getLogger(ApiUrlEnvironment.class);
-    private final static String ENVIRONMENT_FILE_NAME   = "config/frontUrlEnv.properties";
+    private final static String ENVIRONMENT_FILE_NAME   = "src/main/resources/config/frontUrlEnv.properties";
 
     String urlLanding = null;
     String urlApp = null;
@@ -55,7 +55,7 @@ public enum FrontUrlEnvironment{
     }
 
     public String getUrl(Boolean isApp, String endPoint){
-        if(urlLanding==null || urlApp==null) load(ENVIRONMENT_FILE_NAME);
+        if(urlLanding==null || urlApp==null) load();
         return isApp ?
                 getUrl(urlApp, endPoint) :
                 getUrl(urlLanding, endPoint);
@@ -67,18 +67,18 @@ public enum FrontUrlEnvironment{
                 url;
     }
 
-    private void load(String file){
+    private void load(){
         try{
             Properties urlProp = new Properties();
             urlProp.load(
-                    ResourcesUtils.getStreamResources(file)
+                    new FileInputStream(ENVIRONMENT_FILE_NAME)
             );
             urlProp.forEach((key,value)->{
                 FrontUrlEnvironment.valueOf(key.toString().toUpperCase()).setUrls(value.toString());
             });
 
         }catch( IOException | NullPointerException e){
-            LOGGER.error(String.format("Cannot load [ %s ] properties file !",file));
+            LOGGER.error(String.format("Cannot load [ %s ] properties file !",ENVIRONMENT_FILE_NAME));
             throw new RuntimeException(e.getMessage());
         }
     }

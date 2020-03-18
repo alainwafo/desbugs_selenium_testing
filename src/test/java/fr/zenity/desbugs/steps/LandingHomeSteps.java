@@ -2,8 +2,6 @@ package fr.zenity.desbugs.steps;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.LandingPages.HomePage;
-import fr.zenity.desbugs.PagesObjects.LoginPage;
-import fr.zenity.desbugs.context.ScenarioContext;
 import fr.zenity.desbugs.driverManager.WebDriverManager;
 import io.cucumber.java8.En;
 

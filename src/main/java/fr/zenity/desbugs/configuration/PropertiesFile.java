@@ -3,6 +3,7 @@ package fr.zenity.desbugs.configuration;
 import fr.zenity.desbugs.utils.ResourcesUtils;
 import org.apache.log4j.Logger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,7 +12,7 @@ public class PropertiesFile {
     private static final Logger LOGGER              = Logger.getLogger(Properties.class);
     private static final PropertiesFile INSTANCE    = new PropertiesFile();
 
-    private static final String PROPERTY_FILE_NAME  = "config/configuration.properties";
+    private static final String PROPERTY_FILE_NAME  = "src/main/resources/config/configuration.properties";
     private Properties prop = null;
 
     public PropertiesFile( ){
@@ -19,7 +20,7 @@ public class PropertiesFile {
       try{
             (prop = new Properties())
             .load(
-                   ResourcesUtils.getStreamResources(PROPERTY_FILE_NAME)
+                   new FileInputStream(PROPERTY_FILE_NAME)
             );
       }catch(IOException | java.lang.NullPointerException e){
           LOGGER.error(String.format("Cannot load %s properties file !",PROPERTY_FILE_NAME));

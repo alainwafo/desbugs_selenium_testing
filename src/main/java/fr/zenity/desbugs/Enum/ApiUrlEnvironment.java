@@ -3,6 +3,7 @@ package fr.zenity.desbugs.Enum;
 import fr.zenity.desbugs.utils.ResourcesUtils;
 import org.apache.log4j.Logger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -13,7 +14,7 @@ public enum ApiUrlEnvironment{
     CUSTOM;
 
     private final static Logger LOGGER                  = Logger.getLogger(ApiUrlEnvironment.class);
-    private final static String ENVIRONMENT_FILE_NAME   = "config/apiUrlEnv.properties";
+    private final static String ENVIRONMENT_FILE_NAME   = "src/main/resources/config/apiUrlEnv.properties";
 
     String urlApi = null;
 
@@ -39,7 +40,7 @@ public enum ApiUrlEnvironment{
     }
 
     public String getUrl(String endPoint){
-        if(urlApi==null) load(ENVIRONMENT_FILE_NAME);
+        if(urlApi==null) load();
         return getUrl(urlApi, endPoint);
     }
 
@@ -49,18 +50,18 @@ public enum ApiUrlEnvironment{
                 url;
     }
 
-    private void load(String file){
+    private void load(){
         try{
             Properties urlProp = new Properties();
             urlProp.load(
-                    ResourcesUtils.getStreamResources(file)
+                    new FileInputStream(ENVIRONMENT_FILE_NAME)
             );
             urlProp.forEach((key,value)->{
                 ApiUrlEnvironment.valueOf(key.toString().toUpperCase()).setUrls(value.toString());
             });
 
         }catch( IOException | NullPointerException e){
-            LOGGER.error(String.format("Cannot load [ %s ] properties file !",file));
+            LOGGER.error(String.format("Cannot load [ %s ] properties file !",ENVIRONMENT_FILE_NAME));
             throw new RuntimeException(e.getMessage());
         }
     }
