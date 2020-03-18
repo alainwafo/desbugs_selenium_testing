@@ -13,6 +13,7 @@ public enum UrlEnvironment {
 
     DEVELOP,
     NONE,
+    API,
     CUSTOM;
 
     private final static Logger LOGGER                  = Logger.getLogger(UrlEnvironment.class);
