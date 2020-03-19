@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 public final class WebDriverManager {
 
-    private final static WebDriverManager INSTANCE = new WebDriverManager();
+    //private final static WebDriverManager INSTANCE = new WebDriverManager();
 
     private static ThreadLocal<LocalDriver> driver = new ThreadLocal<>();
 
@@ -22,9 +22,11 @@ public final class WebDriverManager {
         setWindowSize();
     }
 
-    public static WebDriverManager getInstance( ){
+    private WebDriverManager(){}
+
+    /*public static WebDriverManager getInstance( ){
         return INSTANCE;
-    }
+    }*/
 
     private static void setWindowSize(){
         WebDriver.Window window = getWebDriver().manage().window();

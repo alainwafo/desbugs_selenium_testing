@@ -29,7 +29,7 @@ public enum PropertiesConfig {
         isFrontal     = Boolean.valueOf(System.getProperty("frontal",prop.get("test.frontOffice","true")));
         env           = FrontUrlEnvironment.init(System.getProperty("env",prop.get("environment","develop")));
         device        = Device.valueOf(System.getProperty("device",prop.get("device","desktop").toUpperCase()));
-        apiEnv        = ApiUrlEnvironment.init(System.getProperty("apiEnv",prop.get("environment","none")));
+        apiEnv        = ApiUrlEnvironment.init(System.getProperty("apiEnv",prop.get("environment","develop")));
         browser       = Browser.init(System.getProperty("browser",prop.get("browser.default","chrome")));
         headless      = Boolean.valueOf(System.getProperty("headless",prop.get("headless","false")));
 

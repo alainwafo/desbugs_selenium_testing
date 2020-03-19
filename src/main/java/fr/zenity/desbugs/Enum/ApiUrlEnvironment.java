@@ -9,29 +9,16 @@ import java.util.Properties;
 public enum ApiUrlEnvironment{
 
     DEVELOP,
-    NONE,
-    CUSTOM;
+    NONE;
 
     private final static Logger LOGGER                  = Logger.getLogger(ApiUrlEnvironment.class);
     private final static String ENVIRONMENT_FILE_NAME   = "src/main/resources/config/apiUrlEnv.properties";
 
     String urlApi = null;
 
-    private static ApiUrlEnvironment build(String env, boolean custom){
-        LOGGER.info(String.format("Test environment :=  %s  ",env.toUpperCase()));
-        if(custom){
-           ApiUrlEnvironment.CUSTOM.setUrls(env);
-            return ApiUrlEnvironment.CUSTOM;
-        }
-        return ApiUrlEnvironment.valueOf(env.toUpperCase());
-    }
-
     public static ApiUrlEnvironment init(String env){
-        return build(env,false);
-    }
-
-    public static ApiUrlEnvironment initCustom(String env){
-        return build(env,true);
+        LOGGER.info(String.format("Test environment :=  %s  ",env.toUpperCase()));
+        return ApiUrlEnvironment.valueOf(env.toUpperCase());
     }
 
     public void setUrls(String urlsProperties) {

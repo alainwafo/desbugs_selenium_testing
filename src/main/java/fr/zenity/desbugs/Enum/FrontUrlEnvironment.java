@@ -13,8 +13,7 @@ import java.util.regex.Pattern;
 public enum FrontUrlEnvironment{
 
     DEVELOP,
-    NONE,
-    CUSTOM;
+    NONE;
 
     private final static Logger LOGGER                  = Logger.getLogger(ApiUrlEnvironment.class);
     private final static String ENVIRONMENT_FILE_NAME   = "src/main/resources/config/frontUrlEnv.properties";
@@ -22,21 +21,9 @@ public enum FrontUrlEnvironment{
     String urlLanding = null;
     String urlApp = null;
 
-    private static FrontUrlEnvironment build(String env, boolean custom){
-        LOGGER.info(String.format("Test environment :=  %s  ",env.toUpperCase()));
-        if(custom){
-           FrontUrlEnvironment.CUSTOM.setUrls(env);
-            return FrontUrlEnvironment.CUSTOM;
-        }
-        return FrontUrlEnvironment.valueOf(env.toUpperCase());
-    }
-
     public static FrontUrlEnvironment init(String env){
-        return build(env,false);
-    }
-
-    public static FrontUrlEnvironment initCustom(String env){
-        return build(env,true);
+        LOGGER.info(String.format("Test environment :=  %s  ",env.toUpperCase()));
+        return FrontUrlEnvironment.valueOf(env.toUpperCase());
     }
 
     public void setUrls(String urlsProperties) {

@@ -1,10 +1,6 @@
 package fr.zenity.desbugs.steps;
 
 import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugDetailPage;
-<<<<<<< HEAD
-=======
-import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugDeviceTypePage;
->>>>>>> ef727914088beccbfd7f46ae0a177aabd724dad3
 import fr.zenity.desbugs.driverManager.WebDriverManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java8.En;
@@ -14,10 +10,10 @@ import java.util.Map;
 
 public class NewBugDetailSteps implements En {
 
-    public NewBugDetailSteps(WebDriverManager driver, NewBugDetailPage newBugDetailPage
+    public NewBugDetailSteps(NewBugDetailPage newBugDetailPage
     ) {
 
-        Then("the New Bug Detail Page should be displayed", () -> {
+        Then("^the New Bug Detail Page should be displayed$", () -> {
             assert newBugDetailPage.isPageOpen();
         });
 

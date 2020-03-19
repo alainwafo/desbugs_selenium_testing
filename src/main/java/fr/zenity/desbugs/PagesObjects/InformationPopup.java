@@ -23,9 +23,11 @@ public class InformationPopup extends Page{
     }
 
     public void clickButtonWithText(String text) {
-        for ( WebElement button:
-                buttons ) {
-            if (button.getText().equals(text)) {button.click();return;}
-        }
+        //click on the first button with text
+        buttons.stream()
+                .filter(button->button.getText().equals(text))
+                .findFirst()
+                .get()
+                .click();
     }
 }

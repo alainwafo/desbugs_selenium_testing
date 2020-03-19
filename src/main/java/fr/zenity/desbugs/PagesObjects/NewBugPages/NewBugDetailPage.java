@@ -51,7 +51,7 @@ public class NewBugDetailPage extends Page {
             click(osInput);
             for (WebElement li :
                     osInputList) {
-                if (li.getText() == os) {
+                if (li.getText().equals(os)) {
                     li.click();
                     return;
                 }
@@ -68,7 +68,7 @@ public class NewBugDetailPage extends Page {
             click(browserInput);
             for (WebElement li :
                     browserInputList) {
-                if (li.getText() == browser) {
+                if (li.getText().equals(browser)) {
                     li.click();
                     return;
                 }

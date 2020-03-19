@@ -10,11 +10,11 @@ import java.util.Map;
 
 public class LoginSteps implements En {
 
-    public LoginSteps(WebDriverManager driver, LoginPage loginPage
+    public LoginSteps(LoginPage loginPage
     ) {
 
-        Given("I am on the Login Page", () -> {
-            driver.getInstance().getWebDriver().navigate().to(DesbugsPage.LOGIN.getUrl());
+        Given("^I am on the Login Page$", () -> {
+            WebDriverManager.getWebDriver().navigate().to(DesbugsPage.LOGIN.getUrl());
         });
 
         Given("^I fill the Login Form:$", (DataTable dt) -> {
@@ -24,12 +24,12 @@ public class LoginSteps implements En {
             loginPage.writePassword(credential.get(0).get("password"));
         });
 
-        When("I valid the Login Form", () -> {
+        When("^I valid the Login Form$", () -> {
             loginPage.submitForm();
         });
 
         Given("^I login with:$", (DataTable dt) -> {
-            driver.getInstance().getWebDriver().navigate().to(DesbugsPage.LOGIN.getUrl());
+            WebDriverManager.getWebDriver().navigate().to(DesbugsPage.LOGIN.getUrl());
             loginPage.waitPageToBeLoad();
             List<Map<String, String>> credential = dt.asMaps(String.class, String.class);
             loginPage.writeUser(credential.get(0).get("username"));
@@ -37,7 +37,7 @@ public class LoginSteps implements En {
             loginPage.submitForm();
         });
 
-        Then("the Login Page should be displayed", () -> {
+        Then("^the Login Page should be displayed$", () -> {
             assert loginPage.isPageOpen();
         });
     }

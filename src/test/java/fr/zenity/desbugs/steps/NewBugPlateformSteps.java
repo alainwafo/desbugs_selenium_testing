@@ -7,7 +7,7 @@ import io.cucumber.java8.En;
 
 public class NewBugPlateformSteps implements En {
 
-    public NewBugPlateformSteps(WebDriverManager driver, NewBugPlateformPage newBugPlateformPage
+    public NewBugPlateformSteps(NewBugPlateformPage newBugPlateformPage
     ) {
 
         Then("the New Bug Plateform Page should be displayed", () -> {
@@ -15,10 +15,10 @@ public class NewBugPlateformSteps implements En {
         });
 
         Given("^I am on the New Bug Plateform Page$", () -> {
-            driver.getInstance().getWebDriver().navigate().to(DesbugsPage.NEW_BUG.getUrl());
+            WebDriverManager.getWebDriver().navigate().to(DesbugsPage.NEW_BUG.getUrl());
         });
 
-        When("^I select the plateform (.*)$", (String plateform) -> {
+        When("^I select the plateform ([a-zA-Z]*)$", (String plateform) -> {
             newBugPlateformPage.waitPageToBeLoad();
             newBugPlateformPage.clickPlateformType(plateform);
         });

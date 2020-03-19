@@ -1,4 +1,3 @@
-# Test environment
+# FRONT Test environment
 develop=urlLanding=https://desbugs-landing.herokuapp.com,urlApp=https://desbugs-app.herokuapp.com
-api=htpps://desbugs-api.herokuapp.com/
 none=null

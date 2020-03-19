@@ -6,14 +6,14 @@ import io.cucumber.java8.En;
 
 public class LoggedHomeSteps implements En {
 
-    public LoggedHomeSteps(WebDriverManager driver, LoggedHomePage homePage
+    public LoggedHomeSteps(LoggedHomePage homePage
     ) {
 
-        Then("the Logged Home should be displayed", () -> {
+        Then("^the Logged Home should be displayed$", () -> {
             assert homePage.isPageOpen();
         });
 
-        When("^I select the (.*) menu$", (String menu) -> {
+        When("^I select the ([a-zA-Z_]*) menu$", (String menu) -> {
             homePage.waitPageToBeLoad();
             homePage.menu.clickMenu(menu);
         });

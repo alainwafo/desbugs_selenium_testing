@@ -28,7 +28,7 @@ public class Page {
     protected final static Logger LOGGER  = Logger.getLogger(Page.class);
 
     protected Page(){
-        this.driver = WebDriverManager.getInstance().getWebDriver();
+        this.driver = WebDriverManager.getWebDriver();
         js          = (JavascriptExecutor) this.driver;
         wait   = new WebDriverWait(this.driver,5);
         shortWait   = new WebDriverWait(this.driver,5);

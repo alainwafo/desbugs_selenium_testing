@@ -1,10 +1,6 @@
 package fr.zenity.desbugs.runners;
 
-import fr.zenity.desbugs.driverManager.WebDriverManager;
 import io.cucumber.testng.CucumberOptions;
-import org.junit.After;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
 
 @CucumberOptions(
         features = "./src/test/resources/features",
