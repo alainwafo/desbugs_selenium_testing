@@ -15,9 +15,15 @@ public class RandomUtils {
     }
 
     public static String randomString(int charNumber){
-        byte[] array = new byte[charNumber]; // length is bounded by charNumber
-        new Random().nextBytes(array);
-        return new String(array, Charset.forName("UTF-8"));
+        int leftLimit = 48; // numeral '0'
+        int rightLimit = 122; // letter 'z'
+        Random random = new Random();
+
+        return random.ints(leftLimit, rightLimit + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(charNumber)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 
     public static String generateId(int len){
@@ -31,6 +37,11 @@ public class RandomUtils {
     }
 
     public static String createParameter(String randomParameter){
+
+        if (randomParameter.equals("none") || randomParameter.equals("null")){
+            return null;
+        }
+
         String patternString = "String<(\\d*)>";
         String patternInt = "Int<(\\d*),(\\d*)>";
 
@@ -42,7 +53,7 @@ public class RandomUtils {
 
         if (m.find())
         {
-            return randomString(Integer.valueOf(m.group(0)));
+            return randomString(Integer.valueOf(m.group(1)));
         }
 
         // Create a Pattern object for int

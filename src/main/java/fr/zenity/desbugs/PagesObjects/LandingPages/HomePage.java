@@ -10,10 +10,14 @@ public class HomePage extends Page {
     @FindBy(id = "gatsby-focus-wrapper")
     private WebElement container ;
 
-    LandingMenuComponant menu;
+    public LandingMenuComponant menu;
 
     public void waitPageToBeLoad(){
         init(DesbugsPage.HOME, container);
         menu = new LandingMenuComponant();
+    }
+
+    public boolean isPageOpen() {
+        return isPageOpened(DesbugsPage.HOME, container);
     }
 }

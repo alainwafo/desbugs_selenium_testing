@@ -1,4 +1,3 @@
-@test
 Feature: Login Feature
   Verify if user is able to Login in to the site
 

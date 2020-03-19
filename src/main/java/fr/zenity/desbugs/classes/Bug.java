@@ -1,16 +1,23 @@
 package fr.zenity.desbugs.classes;
 
-import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugDeviceTypePage;
-import fr.zenity.desbugs.PagesObjects.NewBugPages.NewBugPlateformPage;
-import gherkin.lexer.De;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import io.cucumber.datatable.DataTable;
 
 import java.util.List;
+import java.util.Map;
 
 import static fr.zenity.desbugs.utils.RandomUtils.createParameter;
 
 public class Bug {
+
+    public void setDetail(DataTable dt) {
+        List<Map<String, String>> detailDt = dt.asMaps(String.class, String.class);
+        Map<String, String> bugDetail = detailDt.get(0);
+        setWebSiteName(bugDetail.get("webSiteName"));
+        setWebSiteUrl(bugDetail.get("webSiteUrl"));
+        setDescription(bugDetail.get("bugDescription"));
+        setOs(bugDetail.get("os"));
+        setBrowser(bugDetail.get("browser"));
+    }
 
     public enum DeviceType {
         COMPUTER, PAD, SMARTPHONE;
@@ -30,25 +37,15 @@ public class Bug {
 
     private String description;
 
-    //TODO : implement enum
-    public enum OsType{
+    private String os;
 
-    }
-
-    private OsType os;
-
-    //TODO : implement enum
-    public enum BrowserType{
-
-    }
-
-    private BrowserType browser;
+    private String browser;
 
     public DeviceType getDevice() {
         return device;
-}
+    }
 
-    private void setDevice(String deviceString) {
+    public void setDevice(String deviceString) {
         try{
             this.device = DeviceType.valueOf(deviceString.toUpperCase());
         }catch(Exception e) {
@@ -61,7 +58,7 @@ public class Bug {
         return plateform;
     }
 
-    private void setPlateform(String plateformString) {
+    public void setPlateform(String plateformString) {
         try{
             this.plateform = PlateformType.valueOf(plateformString.toUpperCase());
         }catch(Exception e) {
@@ -74,7 +71,7 @@ public class Bug {
         return webSiteName;
     }
 
-    private void setWebSiteName(String webSiteName) {
+    public void setWebSiteName(String webSiteName) {
         this.webSiteName = createParameter(webSiteName);
     }
 
@@ -82,7 +79,7 @@ public class Bug {
         return webSiteUrl;
     }
 
-    private void setWebSiteUrl(String webSiteUrl) {
+    public void setWebSiteUrl(String webSiteUrl) {
         this.webSiteUrl = createParameter(webSiteUrl);
     }
 
@@ -90,35 +87,23 @@ public class Bug {
         return description;
     }
 
-    private void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = createParameter(description);
     }
 
-    public OsType getOs() {
+    public String getOs() {
         return os;
     }
 
-    private void setOs(String osString) {
-        try{
-            this.os = OsType.valueOf(osString.toUpperCase());
-        }catch(Exception e) {
-            //if specified plateform not found, return the first one
-            this.os = OsType.values()[0];
-        }
+    public void setOs(String os) {
+        this.os = createParameter(os);
     }
 
-    public BrowserType getBrowser() {
+    public String getBrowser() {
         return browser;
     }
 
-    private void setBrowser(String browserString) {
-        try{
-            this.browser = BrowserType.valueOf(browserString.toUpperCase());
-        }catch(Exception e) {
-            //if specified plateform not found, return the first one
-            this.browser = BrowserType.values()[0];
-        }
+    public void setBrowser(String browser) {
+        this.browser =  createParameter(browser);
     }
-
-    //TODO : implement constructor
 }

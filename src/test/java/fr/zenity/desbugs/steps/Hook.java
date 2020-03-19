@@ -1,10 +1,11 @@
 package fr.zenity.desbugs.steps;
 
+import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.driverManager.WebDriverManager;
+import io.cucumber.java8.En;
 
-import fr.zenity.desbugs.context.ScenarioContext;
 
-
-public class Hook {
+public class Hook{
 
     public Hook(){
     }

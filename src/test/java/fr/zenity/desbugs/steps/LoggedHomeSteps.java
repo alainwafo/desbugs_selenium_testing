@@ -13,7 +13,7 @@ public class LoggedHomeSteps implements En {
             assert homePage.isPageOpen();
         });
 
-        When("^I select the (.*) menu$", (String menu) -> {
+        When("^I select the (.*) dashboard menu$", (String menu) -> {
             homePage.waitPageToBeLoad();
             homePage.menu.clickMenu(menu);
         });

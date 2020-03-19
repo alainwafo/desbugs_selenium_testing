@@ -6,10 +6,7 @@ import fr.zenity.desbugs.Enum.Device;
 import fr.zenity.desbugs.configuration.Config;
 import fr.zenity.desbugs.driverManager.WebDriverManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
@@ -18,14 +15,17 @@ import java.util.function.Function;
 
 public class Page {
 
-    protected WebDriver driver;
-    protected JavascriptExecutor js;
-    protected WebDriverWait wait;
-    protected Wait shortWait;
+    protected static WebDriver driver;
+    protected static JavascriptExecutor js;
+    protected static WebDriverWait wait;
+    protected static Wait shortWait;
+    protected boolean isLoaded = false;
 
     public final static Device DEVICE   = Config.propConfig.device;
 
     protected final static Logger LOGGER  = Logger.getLogger(Page.class);
+
+    protected static By errorMessageBy = By.className("Mui-error");
 
     protected Page(){
         this.driver = WebDriverManager.getInstance().getWebDriver();
@@ -35,14 +35,24 @@ public class Page {
         PageFactory.initElements(this.driver,this);
     }
 
+    public static boolean isErrorMessageDisplayed() {
+        return waitUntil(ExpectedConditions.visibilityOfElementLocated(errorMessageBy));
+    }
+
     protected void init(DesbugsPage pageName, WebElement container){
-        new WebDriverWait(driver,60).until(ExpectedConditions.urlToBe(pageName.getUrl()));
-        waitVisibility(container);
+        if (!isLoaded) {
+            new WebDriverWait(driver, 60).until(ExpectedConditions.urlToBe(pageName.getUrl()));
+            waitVisibility(container);
+            isLoaded = true;
+        }
     }
 
     protected void init(DesbugsPage pageName, By containerBy){
-        new WebDriverWait(driver,60).until(ExpectedConditions.urlToBe(pageName.getUrl()));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(containerBy));
+        if (!isLoaded) {
+            new WebDriverWait(driver, 60).until(ExpectedConditions.urlToBe(pageName.getUrl()));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(containerBy));
+            isLoaded = true;
+        }
     }
 
     protected boolean isPageOpened(DesbugsPage pageName, WebElement container){
@@ -90,6 +100,7 @@ public class Page {
         waitVisibility(element);
         scrollToElement(element);
         element.sendKeys(text);
+        element.sendKeys(Keys.TAB);
     }
 
     //Read Text
@@ -106,7 +117,7 @@ public class Page {
         return !selected.isEmpty() || selected != null ? Boolean.parseBoolean(selected) : false;
     }
 
-    protected <T>boolean waitUntil(Function<? super WebDriver,T> isTrue){
+    protected static <T>boolean waitUntil(Function<? super WebDriver,T> isTrue){
         try{
             shortWait.until(isTrue);
             return true;

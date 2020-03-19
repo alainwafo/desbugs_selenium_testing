@@ -25,6 +25,7 @@ public class LoginSteps implements En {
         });
 
         When("I valid the Login Form", () -> {
+            loginPage.waitPageToBeLoad();
             loginPage.submitForm();
         });
 

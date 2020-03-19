@@ -2,6 +2,8 @@ package fr.zenity.desbugs.PagesObjects.NewBugPages;
 
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
+import fr.zenity.desbugs.classes.Bug;
+import org.apache.commons.exec.OS;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,7 +44,7 @@ public class NewBugDetailPage extends Page {
 
     public void writeDescription(String desc) {
         click(bugDescriptionInput);
-        driver.switchTo().activeElement().sendKeys(desc);
+        writeText(driver.switchTo().activeElement(), desc);
     }
 
     public void clickOs(String os) {
@@ -89,5 +91,9 @@ public class NewBugDetailPage extends Page {
 
     public boolean isPageOpen(){
         return isPageOpened(DesbugsPage.NEW_BUG, containerBy);
+    }
+
+    public void waitPageToBeLoad() {
+            init(DesbugsPage.NEW_BUG, containerBy);
     }
 }
