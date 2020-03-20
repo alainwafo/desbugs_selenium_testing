@@ -25,18 +25,12 @@ public class Page {
 
     protected final static Logger LOGGER  = Logger.getLogger(Page.class);
 
-    protected static By errorMessageBy = By.className("Mui-error");
-
     protected Page(){
         this.driver = WebDriverManager.getInstance().getWebDriver();
         js          = (JavascriptExecutor) this.driver;
         wait   = new WebDriverWait(this.driver,5);
         shortWait   = new WebDriverWait(this.driver,5);
         PageFactory.initElements(this.driver,this);
-    }
-
-    public static boolean isErrorMessageDisplayed() {
-        return waitUntil(ExpectedConditions.visibilityOfElementLocated(errorMessageBy));
     }
 
     protected void init(DesbugsPage pageName, WebElement container){

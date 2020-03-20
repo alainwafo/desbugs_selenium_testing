@@ -5,14 +5,16 @@ import fr.zenity.desbugs.PagesObjects.Page;
 import fr.zenity.desbugs.classes.Bug;
 import org.apache.commons.exec.OS;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class NewBugDetailPage extends Page {
 
-    private By containerBy = By.cssSelector("div.MuiContainer-root > div > div > section > section");
+    private By containerBy = By.id("bugForm");
 
     //TODO find better selector
     @FindBy(className = "#root > div:nth-child(2) > div > h3")
@@ -39,11 +41,14 @@ public class NewBugDetailPage extends Page {
     }
 
     public void writeWebsiteUrl(String url) {
+        webSiteUrlInput.sendKeys(Keys.ARROW_RIGHT);
         writeText(webSiteUrlInput, url);
     }
 
     public void writeDescription(String desc) {
-        click(bugDescriptionInput);
+        //description has no input, use Action to click on it
+        Actions act = new Actions(driver);
+        act.moveToElement(bugDescriptionInput).click().perform();
         writeText(driver.switchTo().activeElement(), desc);
     }
 

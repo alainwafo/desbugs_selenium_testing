@@ -10,11 +10,11 @@ public class NewBugPlateformPage extends Page {
 
     private InformationPopup popup;
 
-    private By containerBy = By.cssSelector("div > section > div.MuiGrid-container");
+    private By containerBy = By.id("typeSelection");
 
-    private By webContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(1)");
+    private By webContainerBy = By.cssSelector("section#typeSelection > div > div.MuiGrid-item:nth-child(1)");
 
-    private By  softwareContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(2)");
+    private By  softwareContainerBy = By.cssSelector("section#typeSelection > div > div.MuiGrid-item:nth-child(2)");
 
     public void clickPlateformType (Bug.PlateformType type) {
         switch (type) {

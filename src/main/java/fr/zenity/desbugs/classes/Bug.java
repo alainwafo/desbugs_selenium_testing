@@ -72,7 +72,7 @@ public class Bug {
     }
 
     public void setWebSiteName(String webSiteName) {
-        this.webSiteName = createParameter(webSiteName);
+        this.webSiteName = createParameter(webSiteName, true);
     }
 
     public String getWebSiteUrl() {
@@ -80,7 +80,7 @@ public class Bug {
     }
 
     public void setWebSiteUrl(String webSiteUrl) {
-        this.webSiteUrl = createParameter(webSiteUrl);
+        this.webSiteUrl = String.format("www.%s.com", createParameter(webSiteUrl, false));
     }
 
     public String getDescription() {
@@ -88,7 +88,7 @@ public class Bug {
     }
 
     public void setDescription(String description) {
-        this.description = createParameter(description);
+        this.description = createParameter(description, true);
     }
 
     public String getOs() {
@@ -96,7 +96,7 @@ public class Bug {
     }
 
     public void setOs(String os) {
-        this.os = createParameter(os);
+        this.os = createParameter(os, false);
     }
 
     public String getBrowser() {
@@ -104,6 +104,6 @@ public class Bug {
     }
 
     public void setBrowser(String browser) {
-        this.browser =  createParameter(browser);
+        this.browser =  createParameter(browser, false);
     }
 }

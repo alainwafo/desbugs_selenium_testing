@@ -46,9 +46,5 @@ public class NewBugDetailSteps implements En {
             newBugDetailPage.waitPageToBeLoad();
             newBugDetailPage.writeWebsiteName(bug.getWebSiteName());
         });
-
-        Then("^An error message field should be displayed$", () -> {
-            assert Page.isErrorMessageDisplayed();
-        });
     }
 }

@@ -9,16 +9,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class NewBugDeviceTypePage extends Page {
 
-    private By containerBy = By.cssSelector("div > div > div.MuiGrid-container");
+    private By containerBy = By.id("deviceSelection");
 
     @FindBy(className = "#root > div:nth-child(2) > div > h3")
     private WebElement  returnButton ;
 
-    private By computerContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(1)");
+    private By computerContainerBy = By.cssSelector("div#deviceSelection > div > div.MuiGrid-item:nth-child(1)");
 
-    private By  padContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(2)");
+    private By  padContainerBy = By.cssSelector("div#deviceSelection > div > div.MuiGrid-item:nth-child(2)");
 
-    private By  smartphoneContainerBy = By.cssSelector("div.MuiGrid-item:nth-child(3)");
+    private By  smartphoneContainerBy = By.cssSelector("div#deviceSelection > div > div.MuiGrid-item:nth-child(3)");
 
     public void clickDeviceType (Bug.DeviceType type) {
         switch (type) {

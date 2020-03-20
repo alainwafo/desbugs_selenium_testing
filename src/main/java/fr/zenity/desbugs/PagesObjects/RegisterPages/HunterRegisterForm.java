@@ -47,7 +47,9 @@ public class HunterRegisterForm extends Page {
         writeText(hunterConfirmPasswordInput, password);
     }
 
-    public void selectCgu(){
-        click(hunterCguInput);
+    public void selectCgu(Boolean isValidated){
+        if (isValidated) {
+            click(hunterCguInput);
+        }
     }
 }

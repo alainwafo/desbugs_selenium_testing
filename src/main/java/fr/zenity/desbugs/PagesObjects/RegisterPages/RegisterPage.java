@@ -1,5 +1,6 @@
 package fr.zenity.desbugs.PagesObjects.RegisterPages;
 
+import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,12 +11,12 @@ public class RegisterPage extends Page {
     private WebElement container ;
 
     //user register form
-    HunterRegisterForm hunterForm;
+    public HunterRegisterForm hunterForm;
     @FindBy(id = "scrollable-auto-tab-0")
     private WebElement  hunterSeletor ;
 
     //entreprise register form
-    EntrepriseRegisterForm entrepriseForm;
+    public EntrepriseRegisterForm entrepriseForm;
     @FindBy(id = "scrollable-auto-tab-1")
     private WebElement  entrepriseSeletor ;
 
@@ -36,5 +37,10 @@ public class RegisterPage extends Page {
 
     public void submitForm(){
         click(submitButton);
+    }
+
+    public void waitPageToBeLoad() {
+        init(DesbugsPage.REGISTER, container);
+        hunterForm = new HunterRegisterForm();
     }
 }

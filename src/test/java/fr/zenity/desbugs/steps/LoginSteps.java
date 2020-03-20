@@ -1,5 +1,6 @@
 package fr.zenity.desbugs.steps;
 
+import fr.zenity.desbugs.PagesObjects.Page;
 import io.cucumber.datatable.DataTable;
 import fr.zenity.desbugs.Enum.DesbugsPage;
 import fr.zenity.desbugs.PagesObjects.LoginPage;

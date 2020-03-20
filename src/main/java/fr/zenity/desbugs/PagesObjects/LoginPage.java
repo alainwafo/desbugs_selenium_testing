@@ -38,4 +38,6 @@ public class LoginPage extends Page {
     public boolean isPageOpen() {
         return isPageOpened(DesbugsPage.LOGIN, container);
     }
+
+
 }
